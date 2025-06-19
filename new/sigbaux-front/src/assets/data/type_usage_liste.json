@@ -1,0 +1,12 @@
+{
+	"data": [
+		{
+			"id": "1",
+			"libelle": "Habitation"
+		},
+        {
+			"id": "2",
+			"libelle": "Commercial"
+		}
+    ]
+}

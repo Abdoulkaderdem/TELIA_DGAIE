@@ -1,0 +1,40 @@
+<div *ngIf="offer" class="container mt-4">
+    <h2>Details de l'Offre</h2>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Offre ID: {{ offer.id }}</h5>
+            <p class="card-text"><strong>Date de l'offre:</strong> {{ formatDate(offer.dateOffer) }}</p>
+            <p class="card-text"><strong>Statut de l'offre:</strong> {{ offer.rentalStatus }}</p>
+            <p class="card-text"><strong>Code de l'offre:</strong> {{ offer.code }}</p>
+        </div>
+    </div>
+
+    <h3>Propriétaire</h3>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ offer.landLord.firstname }} {{ offer.landLord.lastname }}</h5>
+            <p class="card-text"><strong>Entreprise:</strong> {{ offer.landLord.companyName }}</p>
+            <p class="card-text"><strong>Email:</strong> {{ offer.landLord.emailAdress }}</p>
+            <p class="card-text"><strong>Téléphone:</strong> {{ offer.landLord.phoneNumber }}</p>
+            <p class="card-text"><strong>WhatsApp:</strong> {{ offer.landLord.whatsapp }}</p>
+            <p class="card-text"><strong>Adresse de résidence:</strong> {{ offer.landLord.residencePlace }}</p>
+        </div>
+    </div>
+
+    <h3>Bâtiments</h3>
+    <div *ngFor="let building of offer.buildingDtos" class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Bâtiment Code: {{ building.code }}</h5>
+            <p class="card-text"><strong>Type de Bâtiment:</strong> {{ building.typeBuilding }}</p>
+            <p class="card-text"><strong>Statut:</strong> {{ building.status }}</p>
+            <p class="card-text"><strong>Valeur:</strong> {{ building.buildingValue }}</p>
+            <p class="card-text"><strong>Prix de location:</strong> {{ building.rentPrice }}</p>
+            <p class="card-text"><strong>Localisation:</strong> {{ building.city }}, {{ building.street }}, {{
+                building.doornumber }}</p>
+            <h6>Caractéristiques du Bâtiment</h6>
+            <ul>
+                <li *ngFor="let standing of building.listBuildingStanding">{{ standing }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

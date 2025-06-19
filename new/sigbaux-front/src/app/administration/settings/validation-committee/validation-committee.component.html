@@ -1,0 +1,112 @@
+
+<p-toast></p-toast>
+<p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+        <div class="my-2">
+            <button
+                pButton
+                pRipple
+                label="Nouveau comité de validation"
+                icon="pi pi-plus"
+                class="p-button-success mr-2"
+                (click)="openNew()"
+            ></button>
+            <!--button
+                pButton
+                pRipple
+                label="Supprimer"
+                icon="pi pi-trash"
+                class="p-button-danger"
+            ></button-->
+        </div>
+    </ng-template>
+</p-toolbar>
+
+<p-table [value]="committees" responsiveLayout="scroll" dataKey="id">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>Membres</th>
+            <th>Responsable</th>
+            <th>Actions</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-committee>
+        <tr>
+            <td>{{ committee.id }}</td>
+            <td>{{ committee.name }}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let member of committee.members">{{ member.firstName }} {{ member.lastName }}</li>
+                </ul>
+            </td>
+            <td>{{ committee.responsible.firstName }} {{ committee.responsible.lastName }}</td>
+            <td>
+                <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                    (click)="editCommittee(committee)"></button>
+                <button pButton icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    (click)="deleteCommittee(committee)"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<p-dialog
+    [(visible)]="dialogVisible" 
+    [header]="selectedCommittee ? 'Modifier comité de validation' : 'Nouveau comité de validation'" 
+    [modal]="true"
+    [style]="{width: '50vw'}" 
+    (onHide)="hideDialog()">
+    <form [formGroup]="committeeForm">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="name">Name</label>
+                <input id="name" type="text" pInputText formControlName="name" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.firstName">Responsible First Name</label>
+                <input id="responsible.firstName" type="text" pInputText formControlName="responsible.firstName" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.lastName">Responsible Last Name</label>
+                <input id="responsible.lastName" type="text" pInputText formControlName="responsible.lastName" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.email">Responsible Email</label>
+                <input id="responsible.email" type="email" pInputText formControlName="responsible.email" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.phoneNumber">Responsible Phone</label>
+                <input id="responsible.phoneNumber" type="text" pInputText formControlName="responsible.phoneNumber" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.email">Responsible Email</label>
+                <input id="responsible.email" type="email" pInputText formControlName="responsible.email" />
+            </div>
+            <div class="p-field">
+                <label for="responsible.function">Responsible Fonction</label>
+                <input id="responsible.function" type="text" pInputText formControlName="responsible.function" />
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <!--button
+            pButton label="Enregistrer" 
+            icon="pi pi-check" 
+            (click)="saveCommittee()"
+            [disabled]="!committeeForm.valid">
+        </button-->
+        <button
+            pButton label="Enregistrer" 
+            icon="pi pi-check" 
+            (click)="saveCommittee()">
+        </button>
+        <button
+            pButton 
+            label="Annuler" 
+            icon="pi pi-times" 
+            (click)="hideDialog()"
+        ></button>
+    </p-footer>
+</p-dialog>

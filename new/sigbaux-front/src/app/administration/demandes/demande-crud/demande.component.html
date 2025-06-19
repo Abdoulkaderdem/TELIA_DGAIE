@@ -1,0 +1,152 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card px-6 py-6">
+      <p-toast></p-toast>
+      <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+          <div class="my-2">
+            <button pButton pRipple label="Enregistrer" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+            <button pButton pRipple label="Désactiver" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedRequests()"
+              [disabled]="!selectedRequests || !selectedRequests.length"></button>
+          </div>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+          <button pButton pRipple label="Exporter" icon="pi pi-upload" class="p-button-help" (click)="dt.exportCSV()"></button>
+        </ng-template>
+      </p-toolbar>
+
+      <p-table #dt [value]="requests" [columns]="cols" responsiveLayout="scroll" [rows]="10" [globalFilterFields]="['description', 'status', 'legalStatus']"
+        [paginator]="true" [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true" currentPageReportTemplate="Affichage du  {first} au {last} des {totalRecords} entrées"
+        [(selection)]="selectedRequests" selectionMode="multiple" [rowHover]="true" dataKey="id">
+        <ng-template pTemplate="caption">
+          <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+            <h5 class="m-0">GESTION DES DEMANDES DE LOCATION</h5>
+            <span class="block mt-2 md:mt-0 p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher..." class="w-full sm:w-auto" />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 3rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="dateRequest">DATE <p-sortIcon field="dateRequest"></p-sortIcon></th>
+            <th pSortableColumn="description">DESCRIPTION <p-sortIcon field="description"></p-sortIcon></th>
+            <th pSortableColumn="status">STATUS <p-sortIcon field="status"></p-sortIcon></th>
+            <th pSortableColumn="legalStatus">LEGAL STATUS <p-sortIcon field="legalStatus"></p-sortIcon></th>
+            <th pSortableColumn="motivationRequest">MOTIVATION <p-sortIcon field="motivationRequest"></p-sortIcon></th>
+            <th pSortableColumn="structureCurrentPosition">CURRENT POSITION <p-sortIcon field="structureCurrentPosition"></p-sortIcon></th>
+            <th pSortableColumn="agentsNumber">AGENTS <p-sortIcon field="agentsNumber"></p-sortIcon></th>
+            <th pSortableColumn="managersNumber">MANAGERS <p-sortIcon field="managersNumber"></p-sortIcon></th>
+            <th pSortableColumn="desiredGeographicalLocation">LOCATION <p-sortIcon field="desiredGeographicalLocation"></p-sortIcon></th>
+            <th pSortableColumn="leasePortfolioMinistry">MINISTRY <p-sortIcon field="leasePortfolioMinistry"></p-sortIcon></th>
+            <th pSortableColumn="buildingsOccupancyStatus">OCCUPANCY STATUS <p-sortIcon field="buildingsOccupancyStatus"></p-sortIcon></th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-request>
+          <tr>
+            <td><p-tableCheckbox [value]="request"></p-tableCheckbox></td>
+            <td style="width: 14%; min-width: 10rem">{{ request.dateRequest }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.description }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.status }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.legalStatus }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.motivationRequest }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.structureCurrentPosition }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.agentsNumber }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.managersNumber }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.desiredGeographicalLocation }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.leasePortfolioMinistry }}</td>
+            <td style="width: 14%; min-width: 10rem">{{ request.buildingsOccupancyStatus }}</td>
+            <td>
+              <div class="flex">
+                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editRequest(request)"></button>
+                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteRequest(request)"></button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <p-dialog [(visible)]="requestDialog" [style]="{ width: '450px' }" header="Fiche Demande de Location" [modal]="true" class="p-fluid">
+      <ng-template pTemplate="content">
+        <div class="field">
+          <label for="description">Description</label>
+          <input type="text" pInputText id="description" [(ngModel)]="request.description" required autofocus [ngClass]="{ 'ng-invalid ng-dirty': submitted && !request.description }" />
+          <small class="ng-dirty ng-invalid" *ngIf="submitted && !request.description">Description est requise.</small>
+        </div>
+        <div class="field">
+          <label for="dateRequest">Date</label>
+          <input type="datetime-local" pInputText id="dateRequest" [(ngModel)]="request.dateRequest" required />
+        </div>
+        <!--div class="field">
+          <label for="status">Status</label>
+          <p-dropdown [(ngModel)]="request.status" inputId="status" [options]="statuses" optionLabel="label" placeholder="Select"></p-dropdown>
+        </div-->
+        <div class="field">
+          <label for="legalStatus">Legal Status</label>
+          <input type="text" pInputText id="legalStatus" [(ngModel)]="request.legalStatus" />
+        </div>
+        <div class="field">
+          <label for="motivationRequest">Motivation</label>
+          <input type="text" pInputText id="motivationRequest" [(ngModel)]="request.motivationRequest" />
+        </div>
+        <div class="field">
+          <label for="structureCurrentPosition">Current Position</label>
+          <input type="text" pInputText id="structureCurrentPosition" [(ngModel)]="request.structureCurrentPosition" />
+        </div>
+        <div class="field">
+          <label for="agentsNumber">Agents Number</label>
+          <input type="number" pInputText id="agentsNumber" [(ngModel)]="request.agentsNumber" />
+        </div>
+        <div class="field">
+          <label for="managersNumber">Managers Number</label>
+          <input type="number" pInputText id="managersNumber" [(ngModel)]="request.managersNumber" />
+        </div>
+        <div class="field">
+          <label for="desiredGeographicalLocation">Desired Location</label>
+          <input type="text" pInputText id="desiredGeographicalLocation" [(ngModel)]="request.desiredGeographicalLocation" />
+        </div>
+        <div class="field">
+          <label for="leasePortfolioMinistry">Ministry</label>
+          <input type="text" pInputText id="leasePortfolioMinistry" [(ngModel)]="request.leasePortfolioMinistry" />
+        </div>
+        <div class="field">
+          <label for="buildingsOccupancyStatus">Occupancy Status</label>
+          <input type="text" pInputText id="buildingsOccupancyStatus" [(ngModel)]="request.buildingsOccupancyStatus" />
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveRequest()"></button>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="deleteRequestDialog" header="Confirm" [modal]="true" [style]="{ width: '450px' }">
+      <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span *ngIf="request">Êtes-vous sûr de vouloir supprimer <b>{{ request.description }}</b>?</span>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteRequestDialog = false"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="deleteRequestsDialog" header="Confirm" [modal]="true" [style]="{ width: '450px' }">
+      <div class="flex align-items-center justify-content-center">
+        <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+        <span>Êtes-vous sûr de vouloir supprimer les demandes sélectionnées?</span>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteRequestsDialog = false"></button>
+        <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDeleteSelected()"></button>
+      </ng-template>
+    </p-dialog>
+  </div>
+</div>

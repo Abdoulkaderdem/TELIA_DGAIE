@@ -1,0 +1,50 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h1>Registre des Offres de Location</h1>
+      <p-table #dt [value]="rentalOffers" [paginator]="true" [rows]="10" [globalFilterFields]="['code', 'landLord.firstname', 'landLord.lastname']">
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
+            <th pSortableColumn="landLord.lastname">Nom <p-sortIcon field="landLord.lastname"></p-sortIcon></th>
+            <th pSortableColumn="landLord.firstname">Prénom <p-sortIcon field="landLord.firstname"></p-sortIcon></th>
+            <th pSortableColumn="dateOffer">Date d'offre <p-sortIcon field="dateOffer"></p-sortIcon></th>
+            <th pSortableColumn="rentalStatus">Statut <p-sortIcon field="rentalStatus"></p-sortIcon></th>
+            <th>Actions</th>
+          </tr>
+          <tr>
+            <th>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher par code">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher par nom">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher par prénom">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher par date d'offre">
+            </th>
+            <th>
+              <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher par statut">
+            </th>
+            <th></th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rentalOffer>
+          <tr>
+            <td>{{ rentalOffer.code }}</td>
+            <td>{{ rentalOffer.landLord?.firstname }}</td>
+            <td>{{ rentalOffer.landLord?.lastname }}</td>
+            <td>{{ rentalOffer.dateOffer | date:'dd/MM/yyyy' }}</td>
+            <td>{{ rentalOffer.rentalStatus | translate }}</td>
+            <td>
+              <button pButton type="button" icon="pi pi-pencil" (click)="editRentalOffer(rentalOffer)"></button>
+              <!--button pButton type="button" icon="pi pi-trash" class="p-button-danger" (click)="deleteRentalOffer(rentalOffer)"></button-->
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

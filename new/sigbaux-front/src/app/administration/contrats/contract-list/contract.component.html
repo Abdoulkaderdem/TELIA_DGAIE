@@ -1,0 +1,159 @@
+<div class="card">
+  <p-toast></p-toast>
+  <p-toolbar styleClass="mb-4">
+    <ng-template pTemplate="left">
+      <h1>Registre des contrats</h1>
+    </ng-template>
+
+    <!--ng-template pTemplate="right">
+        <button 
+          pButton 
+          pRipple 
+          label="Trier les contrats encours" 
+          icon="pi pi-upload" 
+          class="p-button-help"
+        ></button>
+    </ng-template-->
+  </p-toolbar>
+
+  <p-table [value]="contracts"
+    [globalFilterFields]="['id', 'buildingId', 'startDate', 'endDate', 'contractPeriodicity']" 
+    dataKey="id"
+    [columns]="cols" 
+    responsiveLayout="scroll" 
+    [rows]="10"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id">
+          Réf. Contrat
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <!--th pSortableColumn="buildingId">
+          ID du Bâtiment
+          <p-sortIcon field="buildingId"></p-sortIcon>
+        </th-->
+        <th>IFU Bailleur</th>
+        <th>Identité Bailleur</th>
+        <th pSortableColumn="rentAmount">
+          Montant du Loyer
+          <p-sortIcon field="rentAmount"></p-sortIcon>
+        </th>
+        <th pSortableColumn="startDate">
+          Date de Début
+          <p-sortIcon field="startDate"></p-sortIcon>
+        </th>
+        <th pSortableColumn="endDate">
+          Date de Fin
+          <p-sortIcon field="endDate"></p-sortIcon>
+        </th>
+        <th pSortableColumn="contractPeriodicity">
+          Périodicité
+          <p-sortIcon field="contractPeriodicity"></p-sortIcon>
+        </th>
+        <th pSortableColumn="status">
+          Status
+          <p-sortIcon field="status"></p-sortIcon>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-contract>
+      <tr>
+        <td>{{ contract.id }} du {{ formatDate(contract.startDate) }}</td>
+        <td> -- </td>
+        <td> -- </td>
+        <!--td>{{ contract.buildingId }}</td-->
+        <td>{{ contract.rentAmount }} FCFA</td>
+        <td>{{ formatDate(contract.startDate) }}</td>
+        <td>{{ formatDate(contract.endDate) }}</td>
+        <td>{{ contract.contractPeriodicity }} mois</td>
+        <td>{{ contract.status | translate }}</td>
+        <td>
+          <div class="flex">
+            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-success mr-2"
+              (click)="viewContractDetails(contract)"></button>
+
+            <button pButton pRipple icon="pi pi-print" class="p-button-rounded p-button-primary mr-2"
+              (click)="printContract(contract.id)"></button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+    <p-dialog [(visible)]="contractDialog" styleClass="p-fluid" header="Détails du Contrat" [style]="{ width: '70%' }">
+  <div class="grid" *ngIf="selectedContract" style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 16px;">
+    <!-- Première ligne avec les ID et le montant -->
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="buildingId" class="font-bold">ID du Bâtiment :</label>
+        <p class="text-secondary">{{ selectedContract.buildingId }}</p>
+      </div>
+    </div>
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="rentAmount" class="font-bold">Montant du Loyer :</label>
+        <p class="text-success">{{ selectedContract.rentAmount }} FCFA</p>
+      </div>
+    </div>
+
+    <!-- Deuxième ligne avec les dates -->
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="startDate" class="font-bold">Date de Début :</label>
+        <p>{{ formatDate(selectedContract.startDate) }}</p>
+      </div>
+    </div>
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="endDate" class="font-bold">Date de Fin :</label>
+        <p>{{ formatDate(selectedContract.endDate) }}</p>
+      </div>
+    </div>
+
+    <!-- Conditions -->
+    <div class="col-12 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="terms" class="font-bold">Conditions :</label>
+        <p>{{ selectedContract.terms }}</p>
+      </div>
+    </div>
+
+    <!-- Périodicité et statut -->
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="contractPeriodicity" class="font-bold">Périodicité :</label>
+        <p>{{ selectedContract.contractPeriodicity }} mois</p>
+      </div>
+    </div>
+    <div class="col-6 p-4">
+      <div class="p-field" style="border-bottom: 1px solid #ddd; padding-bottom: 8px;">
+        <label for="contractStatus" class="font-bold">Statut :</label>
+        <p class="badge badge-info">{{ selectedContract.status | translate }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section d'upload de fichier si le contrat n'est pas "ENABLE" -->
+  <div *ngIf="selectedContract?.status != 'ENABLE'" class="p-4" style="background-color: #f0f8ff; border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin-top: 16px;">
+    <hr class="mb-3 mt-3">
+    <form action="">
+      <div class="grid">
+        <div class="col-12">
+          <h4>Document du contrat à compléter</h4>
+        </div>
+        <div class="col-8">
+          <input type="file" name="doc-contrat" pInputText (change)="onFileSelected($event)" id="doc-contrat" class="form-control">
+        </div>
+        <div class="col-4">
+          <button pButton label="Envoyer" icon="pi pi-save" class="p-button-primary" (click)="uploadFile(selectedContract!.id)"></button>
+        </div>
+      </div>
+    </form>
+    <hr class="mt-3">
+  </div>
+</p-dialog>
+
+    
+</div>

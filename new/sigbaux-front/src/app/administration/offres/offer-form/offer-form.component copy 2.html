@@ -1,0 +1,284 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <h1>{{ isEditMode ? 'Modifier l\'offre de location' : 'Créer une nouvelle offre de location' }}</h1>
+        </div>
+    </div>
+
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="col-12">
+        <div class="card">
+            <h5>Rechercher un bailleur</h5>
+            <div class="grid">
+                <div class="col-12">
+                    <p-inputGroup>
+                        <input type="text" pInputText placeholder="entrer le numero ifu du bailleur"
+                            formControlName="ifu" />
+                        <button type="submit" pButton label="Rechercher"></button>
+                        <button type="button" pButton label="Rénitialiser" class="p-button-danger"
+                            (click)="resetLandLordForm()"></button>
+                    </p-inputGroup>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="col-12 p-0">
+
+        <div class="col-12 p-fluid">
+            <div class="card">
+                <div formGroupName="landLord">
+                    <h3>Informations Bailleur</h3>
+                    <div class="grid">
+                        <div class="col-12 md:col-4">
+                            <label for="landLordId">ID</label>
+                            <input id="landLordId" formControlName="id" pInputText [disabled]="true">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="ifu">IFU</label>
+                            <input id="ifu" formControlName="ifu" pInputText type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="typeLandLord">Type de bailleur</label>
+                            <p-dropdown id="typeLandLord" [options]="typeLandlords" [(ngModel)]="selected_landlord_type"
+                                placeholder="Selectionner le type de bailleur" [showClear]="false"
+                                formControlName="typeLandLord"></p-dropdown>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="qualityApplicant">Qualité du bailleur</label>
+                            <p-dropdown [options]="quality_applicant" [(ngModel)]="selected_quality"
+                                placeholder="Selectionner la qualité du bailleur" [showClear]="false"
+                                formControlName="qualityApplicant"></p-dropdown>
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="firstname">Nom</label>
+                            <input pInputText id="firstname" formControlName="firstname" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="lastname">Prénom(s)</label>
+                            <input pInputText id="lastname" formControlName="lastname" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="companyName">Nom de l'entreprise</label>
+                            <input pInputText id="companyName" formControlName="companyName" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="bp">Boite Postale</label>
+                            <input pInputText id="bp" formControlName="bp" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="phoneNumber">Téléphone</label>
+                            <input pInputText id="phoneNumber" formControlName="phoneNumber" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input pInputText id="whatsapp" formControlName="whatsapp" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="emailAdress">Adresse Email</label>
+                            <input pInputText id="emailAdress" formControlName="emailAdress" type="email">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="residencePlace">Lieu de Residence</label>
+                            <input pInputText id="residencePlace" formControlName="residencePlace" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 p-fluid" formArrayName="buildingDtos">
+            <div class="card">
+                <h3>INFORMATIONS SUR LE BATIMENT</h3>
+                <div class="grid">
+                    <div class="col-12 md:col-4">
+                        <label for="typeBuilding">Type de bâtiment</label>
+                        <p-dropdown [options]="typeBuildings" [(ngModel)]="selected_typeBuilding"
+                            placeholder="Sélectionner une option" formControlName="typeBuilding"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="typePropertyTitle">Titre d'occupation</label>
+                        <p-dropdown [options]="typePropertyTitles" [(ngModel)]="selected_typePropertyTitle"
+                            name="typePropertyTitle" placeholder="Sélectionner une option"
+                            formControlName="typePropertyTitle"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="buildingsOccupancyStatus">Type(s) d'usage :</label>
+                        <p-multiSelect [options]="typeUsages" placeholder="Sélectionner le(s) type(s) d'usage(s)" [filter]="false"
+                            (onChange)="onBuildingsOccupancyStatusChange($event.value)">
+                            <ng-template let-usage pTemplate="item">
+                                <div class="flex align-items-center">
+                                    <span class="ml-2">{{ usage.label }}</span>
+                                </div>
+                            </ng-template>
+                        </p-multiSelect>
+                        <small *ngIf="getErrorMessage('listBuildingUsageDto')" class="p-error">{{
+                            getErrorMessage('listBuildingUsageDto') }}</small>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="buildingStanding">Standing de l'immeuble</label>
+                        <p-multiSelect [options]="buildingStandings" [(ngModel)]="selectedMulti"
+                            placeholder="Sélectionner une option" [filter]="false"
+                            formControlName="listBuildingStanding">
+                            <ng-template let-standing pTemplate="item">
+                                <div class="flex align-items-center">
+                                    <span class="ml-2">{{ standing.label }}</span>
+                                </div>
+                            </ng-template>
+                        </p-multiSelect>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="buildingValue">Valeur du bâtiment</label>
+                        <input pInputText id="buildingValue" formControlName="buildingValue" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="otherInformation">Autres informations</label>
+                        <input pInputText id="otherInformation" formControlName="otherInformation" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfRoom">Nombre de pièces :</label>
+                        <input type="number" id="numberOfRoom" formControlName="numberOfRoom" pInputText />
+                        <small *ngIf="getErrorMessage('numberOfRoom')" class="p-error">{{
+                            getErrorMessage('numberOfRoom') }}</small>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfRoomMeeting">Nombre de salle de reunion :</label>
+                        <input type="number" id="numberOfRoomMeeting" formControlName="numberOfRoomMeeting"
+                            pInputText />
+                        <small *ngIf="getErrorMessage('numberOfRoomMeeting')" class="p-error">{{
+                            getErrorMessage('numberOfRoomMeeting')
+                            }}</small>
+                    </div>
+
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfBathroom">Nombre de toilletes :</label>
+                        <input type="number" id="numberOfBathroom" formControlName="numberOfBathroom" pInputText />
+                        <small *ngIf="getErrorMessage('numberOfBathroom')" class="p-error">
+                            {{ getErrorMessage('numberOfBathroom') }}
+                        </small>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="region">Région</label>
+                        <p-dropdown [options]="regions" [(ngModel)]="selected_region"
+                            placeholder="Selectionner la region" [showClear]="true" formControlName="region"
+                            (onChange)="onRegionChange($event.value)"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="province">Province</label>
+                        <p-dropdown [options]="filteredProvincesOptions" [(ngModel)]="selected_province"
+                            placeholder="Selectionner la province" [showClear]="true" formControlName="province"
+                            (onChange)="onProvinceChange($event.value)"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="departement">Département/Commune</label>
+                        <p-dropdown [options]="filteredDepartementsOptions" [(ngModel)]="selected_departement"
+                            placeholder="Selectionner le departement" [showClear]="true" formControlName="commune"
+                            (onChange)="onDepartementChange($event.value)"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="city">Secteur/Village</label>
+                        <p-dropdown [options]="filteredSecteursOptions" [(ngModel)]="selected_secteur"
+                            placeholder="Selectionner le secteur ou village" [showClear]="true"
+                            formControlName="city"></p-dropdown>
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="district">Quartier</label>
+                        <input pInputText id="district" formControlName="district" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="sector">Secteur</label>
+                        <input pInputText id="sector" formControlName="sector" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="section">Section</label>
+                        <input pInputText id="section" formControlName="section" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="ilot">Lot</label>
+                        <input pInputText id="ilot" formControlName="ilot" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="plot">Parcelle</label>
+                        <input pInputText id="plot" formControlName="plot" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="street">Rue</label>
+                        <input pInputText id="street" formControlName="street" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="doornumber">Numéro de porte</label>
+                        <input pInputText id="doornumber" formControlName="doornumber" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="geolocation">Géolocalisation</label>
+                        <input pInputText id="geolocation" formControlName="geolocation" type="text">
+                    </div>
+                    <div class="col-12 md:col-4">
+                        <label for="rentPrice">Prix de location</label>
+                        <input pInputText id="rentPrice" formControlName="rentPrice" type="text">
+                    </div>
+                    <div class="col-12 md:col-8">
+                        <label for="file">Fichiers jointes</label><br>
+                        <input
+                          id="file"
+                          pInputText
+                          multiple
+                          class="w-full"
+                          type="file"
+                        />
+                      </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 p-fluid" formArrayName="listOfferAndCharacteristicsDto">
+
+            <div class="card">
+                <h3>Informations complémentaires</h3>
+                <div class="grid">
+                    <div class="col-12">
+
+                        <div *ngFor="let inspection of listOfferAndCharacteristicsDtos.controls; let i = index"
+                            [formGroupName]="i" class="grid">
+                            <div class="col-5">
+                                <p-dropdown [options]="filteredItems(i)" formControlName="characteristics"
+                                    placeholder="Sélectionner un item" filterPlaceholder="Rechercher"
+                                    [showClear]="false" [style]="{width: '100%'}">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-5">
+                                <input id="value" type="number" pInputText formControlName="values"
+                                    [style]="{width: '100%'}">
+                            </div>
+                            <div class="col-2">
+                                <button type="button" pButton icon="pi pi-trash" (click)="removeDetails(i)"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" pButton icon="pi pi-plus" label="Ajouter Détails" class=" flex"
+                            (click)="addDetails()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 p-fluid">
+            <button type="submit" pButton pRipple
+                [label]="isEditMode ? 'Mettre à jour l\'offre' : 'Enregistrer l\'offre'"></button>
+        </div>
+    </form>
+</div>
+<p-toast></p-toast>

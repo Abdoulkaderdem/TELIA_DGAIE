@@ -1,0 +1,255 @@
+<div class="grid">
+  <!-- Titre Principal -->
+  <div class="col-12 p-2">
+    <div class="card" style="background-color: #e3f2fd; border: 1px solid #64b5f6; border-radius: 8px; padding: 16px;">
+      <h1 class="d-none">Créer Une Nouvelle Demande De Location</h1>
+    </div>
+  </div>
+
+  <!-- Formulaire de Demande de Location -->
+  <form [formGroup]="rentalRequestForm" (ngSubmit)="onSubmit()" class="p-fluid col-12">
+    
+    <!-- Étapes du Formulaire -->
+    <div class="card" style=" border: 1px solid #8bc34a; border-radius: 8px; padding: 16px;">
+      <p-steps [model]="onglets" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+    </div>
+
+    <!-- Détails de la Demande de Location -->
+    <div class="card" [style]=" activeIndex == 0 ? 'display:block' : 'display:none'" style="background-color: #ffffff; border: 1px solid #eeeeee; border-radius: 8px; padding: 16px;">
+      <h3 style="color: #3949ab;">Détails de Demande de Location</h3>
+      <div class="grid">
+
+        <!-- Ministère -->
+        <div class="col-12 md:col-4">
+          <label for="nameMinistry" class="font-bold">Ministère :</label>
+          <p-dropdown [options]="ministeresOptions" placeholder="Sélectionner le ministère" [showClear]="true"
+            (onChange)="onMinistryChange($event.value)" id="nameMinistry"></p-dropdown>
+        </div>
+
+        <!-- Structure -->
+        <div class="col-12 md:col-4">
+          <label for="nameStructure" class="font-bold">Structure :</label>
+          <p-dropdown [options]="filteredStructuresOptions" placeholder="Sélectionner la structure" [showClear]="true"
+            (onChange)="onStructureChange($event.value)" id="nameStructure"></p-dropdown>
+          <small *ngIf="getErrorMessage('structure')" class="p-error">{{ getErrorMessage('structure') }}</small>
+        </div>
+
+        <!-- Type d'usage -->
+        <div class="col-12 md:col-4">
+          <label for="buildingsOccupancyStatus" class="font-bold">Type d'usage :</label>
+          <p-multiSelect [options]="typeUsages" placeholder="Sélectionner le(s) type(s) d'usage(s)" [filter]="false"
+            (onChange)="onBuildingsOccupancyStatusChange($event.value)">
+            <ng-template let-usage pTemplate="item">
+              <div class="flex align-items-center">
+                <span class="ml-2">{{ usage.label }}</span>
+              </div>
+            </ng-template>
+          </p-multiSelect>
+          <small *ngIf="getErrorMessage('listBuildingUsageDto')" class="p-error">{{
+            getErrorMessage('listBuildingUsageDto') }}</small>
+        </div>
+
+        <!-- Description -->
+        <div class="col-12 md:col-8">
+          <label for="description" class="font-bold">Description :</label>
+          <textarea id="description" formControlName="description" pInputTextarea rows="5"></textarea>
+          <small *ngIf="getErrorMessage('description')" class="p-error">{{ getErrorMessage('description') }}</small>
+        </div>
+
+        <!-- Motivation de la demande -->
+        <div class="col-12 md:col-4">
+          <label for="motivationRequest" class="font-bold">Motivation de la demande :</label>
+          <textarea id="motivationRequest" formControlName="motivationRequest" pInputTextarea rows="5"></textarea>
+          <small *ngIf="getErrorMessage('motivationRequest')" class="p-error">{{ getErrorMessage('motivationRequest') }}</small>
+        </div>
+
+        <!-- Nombre d'agents -->
+        <div class="col-12 md:col-4">
+          <label for="agentsNumber" class="font-bold">Nombre d'agents :</label>
+          <input type="number" id="agentsNumber" formControlName="agentsNumber" pInputText />
+          <small *ngIf="getErrorMessage('agentsNumber')" class="p-error">{{ getErrorMessage('agentsNumber') }}</small>
+        </div>
+
+        <!-- Nombre de directeurs -->
+        <div class="col-12 md:col-4">
+          <label for="managersNumber" class="font-bold">Nombre de directeurs :</label>
+          <input type="number" id="managersNumber" formControlName="managersNumber" pInputText />
+          <small *ngIf="getErrorMessage('managersNumber')" class="p-error">{{ getErrorMessage('managersNumber') }}</small>
+        </div>
+
+        <!-- Portefeuille de baux -->
+        <div class="col-12 md:col-4">
+          <label for="leasePortfolioMinistry" class="font-bold">Portefeuille de baux :</label>
+          <input type="number" id="leasePortfolioMinistry" formControlName="leasePortfolioMinistry" pInputText />
+          <small *ngIf="getErrorMessage('leasePortfolioMinistry')" class="p-error">{{ getErrorMessage('leasePortfolioMinistry') }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Localisation Géographique Actuelle -->
+    <div class="card" [style]=" activeIndex == 1 ? 'display:block' : 'display:none'" style="background-color: #f3e5f5; border: 1px solid #ab47bc; border-radius: 8px; padding: 16px;">
+      <h3 style="color: #6a1b9a;">Localisation géographique actuelle</h3>
+      <div class="grid">
+
+        <!-- Région -->
+        <div class="col-12 md:col-4">
+          <label for="region" class="font-bold">Région :</label>
+          <p-dropdown [options]="regions" placeholder="Sélectionner la région" [showClear]="true"
+            (onChange)="onRegionChange($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('region')" class="p-error">{{ getErrorMessage('region') }}</small>
+        </div>
+
+        <!-- Province -->
+        <div class="col-12 md:col-4">
+          <label for="province" class="font-bold">Province :</label>
+          <p-dropdown [options]="filteredProvincesOptions" placeholder="Sélectionner la province" [showClear]="true"
+            (onChange)="onProvinceChange($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('province')" class="p-error">{{ getErrorMessage('province') }}</small>
+        </div>
+
+        <!-- Département -->
+        <div class="col-12 md:col-4">
+          <label for="commune" class="font-bold">Département/Commune :</label>
+          <p-dropdown [options]="filteredDepartementsOptions" placeholder="Sélectionner le département"
+            [showClear]="true" (onChange)="onDepartementChange($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('commune')" class="p-error">{{ getErrorMessage('commune') }}</small>
+        </div>
+
+        <!-- Ville -->
+        <div class="col-12 md:col-4">
+          <label for="city" class="font-bold">Ville :</label>
+          <input type="text" id="city" formControlName="city" pInputText />
+          <small *ngIf="getErrorMessage('city')" class="p-error">{{ getErrorMessage('city') }}</small>
+        </div>
+
+        <!-- District -->
+        <div class="col-12 md:col-4">
+          <label for="district" class="font-bold">District :</label>
+          <input type="text" id="district" formControlName="district" pInputText />
+          <small *ngIf="getErrorMessage('district')" class="p-error">{{ getErrorMessage('district') }}</small>
+        </div>
+
+        <!-- Secteur -->
+        <div class="col-12 md:col-4">
+          <label for="sector" class="font-bold">Secteur :</label>
+          <input type="text" id="sector" formControlName="sector" pInputText />
+          <small *ngIf="getErrorMessage('sector')" class="p-error">{{ getErrorMessage('sector') }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Localisation Géographique Souhaitée -->
+    <div class="card" [style]=" activeIndex == 2 ? 'display:block' : 'display:none'" style="background-color: #e8f5e9; border: 1px solid #4caf50; border-radius: 8px; padding: 16px;">
+      <h3 style="color: #2e7d32;">Localisation géographique souhaitée</h3>
+      <div class="grid">
+
+        <!-- Région Souhaitée -->
+        <div class="col-12 md:col-4">
+          <label for="regionDesired" class="font-bold">Région souhaitée :</label>
+          <p-dropdown [options]="regions" placeholder="Sélectionner la région" [showClear]="true"
+            (onChange)="onRegionChange2($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('regionDesired')" class="p-error">{{ getErrorMessage('regionDesired') }}</small>
+        </div>
+
+        <!-- Province Souhaitée -->
+        <div class="col-12 md:col-4">
+          <label for="provinceDesired" class="font-bold">Province souhaitée :</label>
+          <p-dropdown [options]="filteredProvincesOptions2" placeholder="Sélectionner la province" [showClear]="true"
+            (onChange)="onProvinceChange2($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('provinceDesired')" class="p-error">{{ getErrorMessage('provinceDesired') }}</small>
+        </div>
+
+        <!-- Département Souhaité -->
+        <div class="col-12 md:col-4">
+          <label for="communeDesired" class="font-bold">Département/Commune souhaité :</label>
+          <p-dropdown [options]="filteredDepartementsOptions2" placeholder="Sélectionner le département"
+            [showClear]="true" (onChange)="onDepartementChange2($event.value)"></p-dropdown>
+          <small *ngIf="getErrorMessage('communeDesired')" class="p-error">{{ getErrorMessage('communeDesired') }}</small>
+        </div>
+
+        <!-- Ville Souhaitée -->
+        <div class="col-12 md:col-4">
+          <label for="cityDesired" class="font-bold">Ville souhaitée :</label>
+          <input type="text" id="cityDesired" formControlName="cityDesired" pInputText />
+          <small *ngIf="getErrorMessage('cityDesired')" class="p-error">{{ getErrorMessage('cityDesired') }}</small>
+        </div>
+
+        <!-- District Souhaité -->
+        <div class="col-12 md:col-4">
+          <label for="districtDesired" class="font-bold">District souhaité :</label>
+          <input type="text" id="districtDesired" formControlName="districtDesired" pInputText />
+          <small *ngIf="getErrorMessage('districtDesired')" class="p-error">{{ getErrorMessage('districtDesired') }}</small>
+        </div>
+
+        <!-- Secteur Souhaité -->
+        <div class="col-12 md:col-4">
+          <label for="sectorDesired" class="font-bold">Secteur souhaité :</label>
+          <input type="text" id="sectorDesired" formControlName="sectorDesired" pInputText />
+          <small *ngIf="getErrorMessage('sectorDesired')" class="p-error">{{ getErrorMessage('sectorDesired') }}</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informations Complémentaires -->
+    <div class="card" [style]=" activeIndex == 3 ? 'display:block' : 'display:none'" style="background-color: #fff3e0; border: 1px solid #ffb74d; border-radius: 8px; padding: 16px;">
+      <h3 style="color: #ef6c00;">Informations complémentaires</h3>
+      <div class="grid">
+        <!-- Nombre de pièces -->
+        <div class="col-12 md:col-4">
+          <label for="numberOfRoom" class="font-bold">Nombre de pièces :</label>
+          <input type="number" id="numberOfRoom" formControlName="numberOfRoom" pInputText />
+          <small *ngIf="getErrorMessage('numberOfRoom')" class="p-error">{{ getErrorMessage('numberOfRoom') }}</small>
+        </div>
+
+        <!-- Nombre de salle de réunion -->
+        <div class="col-12 md:col-4">
+          <label for="numberOfRoomMeeting" class="font-bold">Nombre de salle de réunion :</label>
+          <input type="number" id="numberOfRoomMeeting" formControlName="numberOfRoomMeeting" pInputText />
+          <small *ngIf="getErrorMessage('numberOfRoomMeeting')" class="p-error">{{ getErrorMessage('numberOfRoomMeeting') }}</small>
+        </div>
+
+        <!-- Nombre de toilettes -->
+        <div class="col-12 md:col-4">
+          <label for="numberOfBathroom" class="font-bold">Nombre de toilettes :</label>
+          <input type="number" id="numberOfBathroom" formControlName="numberOfBathroom" pInputText />
+          <small *ngIf="getErrorMessage('numberOfBathroom')" class="p-error">{{ getErrorMessage('numberOfBathroom') }}</small>
+        </div>
+
+        <!-- Détails supplémentaires -->
+        <div formArrayName="listRequestAndCharacteristicsDtos" class="col-12">
+          <div *ngFor="let inspection of listRequestAndCharacteristicsDtos.controls; let i = index" [formGroupName]="i"
+            class="grid">
+            <div class="col-5">
+              <p-dropdown [options]="filteredItems(i)" formControlName="characteristics"
+                placeholder="Sélectionner un item" filterPlaceholder="Rechercher" [showClear]="false"
+                [style]="{width: '100%'}">
+              </p-dropdown>
+            </div>
+            <div class="col-5">
+              <input id="value" type="number" pInputText formControlName="values" [style]="{width: '100%'}">
+            </div>
+            <div class="col-2">
+              <button type="button" pButton icon="pi pi-trash" class="p-button-danger" (click)="removeInspection(i)"></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bouton Ajouter Détails -->
+        <div class="col-2">
+          <button type="button" pButton icon="pi pi-plus" label="Ajouter Détails" class="p-button-success flex"
+            (click)="addInspection()"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation -->
+    <div class="card" [style]=" activeIndex == 4 ? 'display:block' : 'display:none'" style="background-color: #e1f5fe; border: 1px solid #039be5; border-radius: 8px; padding: 16px;">
+      <h3 style="color: #0288d1;">Confirmation</h3>
+      <div class="p-4">
+        <button type="submit" pButton label="Soumettre" class="p-button-primary" [disabled]="!rentalRequestForm.valid"></button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<p-toast></p-toast>

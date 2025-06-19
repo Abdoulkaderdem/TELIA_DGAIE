@@ -1,0 +1,17 @@
+{
+    "data": [
+        {"Code": "07", "Libéllé": "Centre-ouest", "Zone": "BMCO"},
+        {"Code": "09", "Libéllé": "Nord", "Zone": "CENSAN"},
+        {"Code": "11", "Libéllé": "Centre", "Zone": "CENPLACCS"},
+        {"Code": "08", "Libéllé": "Plateau central", "Zone": "CENPLACCS"},
+        {"Code": "03", "Libéllé": "Sahel", "Zone": "CENSAN"},
+        {"Code": "10", "Libéllé": "Centre-est", "Zone": "ECE"},
+        {"Code": "12", "Libéllé": "Cascades", "Zone": "SOCASHB"},
+        {"Code": "06", "Libéllé": "Centre-nord", "Zone": "CENSAN"},
+        {"Code": "05", "Libéllé": "Sud-ouest", "Zone": "SOCASHB"},
+        {"Code": "02", "Libéllé": "Boucle du mouhoun", "Zone": "BMCO"},
+        {"Code": "04", "Libéllé": "Est", "Zone": "ECE"},
+        {"Code": "01", "Libéllé": "Hauts-bassins", "Zone": "SOCASHB"},
+        {"Code": "13", "Libéllé": "Centre-sud", "Zone": "CENPLACCS"}
+    ]
+}

@@ -1,0 +1,255 @@
+<!--div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h1>Enregistrer une facture</h1>
+      <p>formulaire de soumission des factures</p>
+    </div>
+  </div>
+</div-->
+
+<div class="grid">
+
+  <div class="col-12">
+    <div class="card">
+      <h1>Enregistrer une facture</h1>
+      <!--p>formulaire de soumission des factures</p-->
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card">
+      <form [formGroup]="contractSearchForm" (ngSubmit)="searchContract()" class="col-12 p-0">
+        <h5>Rechercher un contrat</h5>
+        <div class="grid">
+          <div class="col-12">
+            <p-inputGroup>
+              <input pInputText id="contractId" formControlName="contractId" type="number"
+                placeholder="entrer le numero du contrat" />
+              <button type="submit" pButton label="Rechercher"></button>
+            </p-inputGroup>
+          </div>
+        </div>
+      </form>
+      <h2>Informations sur le contrat</h2>
+      <hr />
+      <div class="card p-0" *ngIf="contract">
+
+        <table class="w-full m-0" style="border-collapse: collapse; table-layout: auto">
+          <tbody>
+            <!--tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>ID du Bâtiment</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.buildingId }}</strong>
+              </td>
+            </tr-->
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Ref. Contrat</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.id }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>IFU Bailleur	</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong> -- </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Identité bailleur	</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong> -- </strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Loyer mensuel	</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.rentAmount }} FCFA</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Date d'approbation </strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong> {{ formatDate(contract!.startDate) }} </strong>
+              </td>
+            </tr>
+            
+
+            <!--tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Date de Début</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ formatDate(contract!.startDate) }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Date de Fin</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ formatDate(contract!.endDate) }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Périodicité</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.contractPeriodicity }}</strong>
+              </td>
+            </tr-->
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Statut</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.status | translate }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" *ngIf="!contract && searched">
+        <h2 class="text-center">Contrat Introuvable !</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <div class="card" *ngIf="contract && contract.status == 'ENABLE'">
+      <h2>Veuillez renseigner les différentes informations de la facture</h2>
+      <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+        <div class="grid">
+
+          <div class="col-12">
+            <h3>Montant Total  : {{ totalRent }} FCFA</h3>
+            <h3>Nombre de mois : {{ totalMonth }} </h3>
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="startInterval">Date début</label><br>
+            <input
+              id="startInterval"
+              formControlName="startInterval"
+              pInputText
+              
+              class="w-full"
+              type="date"
+              (change)="onDateChange()"
+            />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="endInterval">Date fin</label><br>
+            <input
+              id="endInterval"
+              formControlName="endInterval"
+              pInputText
+              class="w-full"
+              type="date"
+              (change)="onDateChange()"
+            />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="invoiceReference">Référence de la facture</label><br>
+            <input
+              id="invoiceReference"
+              formControlName="invoiceReference"
+              pInputText
+              class="w-full"
+              type="text"
+            />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="amount">Montant de la facture</label><br>
+            <input
+              id="amount" 
+              formControlName="amount" 
+              pInputText
+              class="w-full"
+              type="number"
+              [disabled]="true"
+            />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="dueDate">Date de reception</label><br>
+            <input
+              id="dueDate"
+              formControlName="dueDate"
+              pInputText
+              class="w-full"
+              type="date"
+            />
+          </div>
+
+          <div class="col-12 md:col-6">
+            <label for="description">Objet de la facture</label><br>
+            <input
+              id="description"
+              formControlName="description"
+              pInputText
+              class="w-full"
+              type="textarea"
+            />
+          </div>
+
+          <div class="col-12">
+            <label for="file">Fichier de la Facture</label><br>
+            <input
+              id="file"
+              pInputText
+              class="w-full"
+              type="file" 
+              (change)="onFileSelected($event)"
+            />
+          </div>
+
+          <div class="col-12 p-fluid">
+            <hr>
+            <button
+                type="submit" 
+                pButton 
+                pRipple
+                label="Envoyer la facture"    
+            ></button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="card" *ngIf="contract && contract.status != 'ENABLE'">
+      <h3 class="text-center">Contract n'est pas actif !</h3>
+    </div>
+
+    <div class="card" *ngIf="!contract">
+      <h3 class="text-center">Aucun contrat sélectionné !</h3>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

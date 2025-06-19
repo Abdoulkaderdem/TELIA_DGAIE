@@ -1,0 +1,166 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card">
+      <h1>PV de remise des clées</h1>
+      <p>formulaire de validation de la remisz des clées</p>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="col-4">
+    <div class="card">
+      <form [formGroup]="contractSearchForm" (ngSubmit)="searchContract()" class="col-12 p-0">
+        <h5>Rechercher un contrat</h5>
+        <div class="grid">
+          <div class="col-12">
+            <p-inputGroup>
+              <input pInputText id="contractId" formControlName="contractId" type="number"
+                placeholder="entrer le numero du contrat" />
+              <button type="submit" pButton label="Rechercher"></button>
+            </p-inputGroup>
+          </div>
+        </div>
+      </form>
+      <h2>Informations sur le contrat</h2>
+      <hr />
+      <div class="card p-0" *ngIf="contract">
+
+        <table class="w-full m-0" style="border-collapse: collapse; table-layout: auto">
+          <tbody>
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>ID du Bâtiment</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.buildingId }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Montant du Loyer</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.rentAmount }} FCFA</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Date de Début</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ formatDate(contract!.startDate) }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Date de Fin</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ formatDate(contract!.endDate) }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Périodicité</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.contractPeriodicity }}</strong>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+                <strong>Statut</strong>
+              </td>
+              <td class="text-right py-3 border-bottom-1 surface-border px-3">
+                <strong>{{ contract.status | translate }}</strong>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card" *ngIf="!contract && searched">
+        <h2 class="text-center">Contrat Introuvable !</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-8">
+    <div class="card" *ngIf="contract && contract.status == 'ENABLE'">
+      <!--div class="card">
+        <button
+            type="button" 
+            pButton 
+            pRipple
+            class="p-button-primary mx-3"
+            label="enregistrer une revison"    
+        ></button>
+
+        <button
+            type="button" 
+            pButton 
+            pRipple
+            class="p-button-primary mx-3"
+            label="enregistrer une revison"
+        ></button>
+
+        <button
+            type="button" 
+            pButton 
+            pRipple
+            class="p-button-success mx-3"
+            label="enregistrer une demande de revison"    
+        ></button>
+
+      </div-->
+      <h2>Veuillez renseigner le motif de la revision</h2>
+      <form [formGroup]="resiliationForm" (ngSubmit)="onSubmit()">
+        <div class="grid">
+
+          <div class="col-12">
+            <!--label for="description">Motif de résiliation :</label-->
+            <textarea 
+              id="description" 
+              formControlName="description" 
+              pInputTextarea
+              rows="10"
+              class="w-full"
+            ></textarea>
+            <small
+              *ngIf="getErrorMessage('description')"
+              class="p-error"
+            >{{ getErrorMessage('description') }}</small>
+          </div>
+
+          <div class="col-12 p-fluid">
+            <hr>
+            <button
+                type="submit" 
+                pButton 
+                pRipple
+                class="p-button-primary"
+                label="VALIDER LA REVISION DU CONTRAT"    
+            ></button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+    <div class="card" *ngIf="contract && contract.status != 'ENABLE'">
+      <h3 class="text-center">Ce contract n'est pas actif !</h3>
+    </div>
+
+    <div class="card" *ngIf="!contract">
+      <h3 class="text-center">Aucun contrat sélectionné !</h3>
+    </div>
+  </div>
+</div>
+
+<p-toast></p-toast>

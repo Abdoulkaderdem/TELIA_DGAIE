@@ -1,0 +1,2182 @@
+{
+    "data": [
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bingo",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 8",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 9",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 10",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 11",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 12",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Saaba",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tanghin-dassouri",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boudry",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kogho",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Méguet",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Mogtédo",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Salogo",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zam",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zorgho",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zoungou",
+            "Province": "Ganzourgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boussé",
+            "Province": "Kourwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Laye",
+            "Province": "Kourwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Niou",
+            "Province": "Kourwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sourgoubila",
+            "Province": "Kourwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Toèghin",
+            "Province": "Kourwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Absouya",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dapélogo",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Loumbila",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nagréongo",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ourgou-manega",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ziniaré",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zitenga",
+            "Province": "Oubritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Déou",
+            "Province": "Oudalan"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gorom gorom",
+            "Province": "Oudalan"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Markoye",
+            "Province": "Oudalan"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Oursi",
+            "Province": "Oudalan"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tin-akoff",
+            "Province": "Oudalan"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bani",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dori",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Falangountou",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gorgadji",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sampelga",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Seytenga",
+            "Province": "Séno"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Arbinda",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Baraboulé",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Djibo",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Djiguel",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kelbo",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koutougou",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nassoumbou",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pobé-mengao",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tongomayel",
+            "Province": "Soum"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boundoré",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Mansila",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sébba",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Solhan",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tankougounadié",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Titabé",
+            "Province": "Yagha"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bagré",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bané",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Béguédo",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bissiga",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bittou",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boussouma",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Garango",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Komtoèga",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Niaogho",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tenkodogo",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zabré",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zoaga",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zonsé",
+            "Province": "Boulgou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Comin-yanga",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dourtenga",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Lalgaye",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouargaye",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sangha",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Soudougui",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yargatenga",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yondé",
+            "Province": "Koulpélogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Amdentenga",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Baskouré",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dialgaye",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gounghin",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kando",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koupéla",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pouytenga",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tensobentenga",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yargo",
+            "Province": "Kouritenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Banfora",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bérégadougou",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Mangodara",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Moussodougou",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Niangoloko",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouo",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sidéradougou",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Soubakaniedougou",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tiefora",
+            "Province": "Comoé"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dakoro",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Douna",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Loumana",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Niankorodougou",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Oueleni",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sindou",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kankalaba",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Wolonkoto",
+            "Province": "Léraba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bourzanga",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Guibaré",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kongoussi",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nasséré",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tikaré",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sabcé",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Rollo",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Rouko",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zimtanga",
+            "Province": "Bam"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boala",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boulsa",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bouroum",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dargo",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nagbingou",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tougouri",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yalgo",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zéguédéguin",
+            "Province": "Namentenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Barsalogho",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boussouma",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dablo",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kaya",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Korsimoro",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Mané",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Namissiguima",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pensa",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pibaoré",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pissila",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ziga",
+            "Province": "Sanmatenga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bondigui",
+            "Province": "Bougouriba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Diébougou",
+            "Province": "Bougouriba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dolo",
+            "Province": "Bougouriba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Iolonioro",
+            "Province": "Bougouriba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tiankoura",
+            "Province": "Bougouriba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dano",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dissin",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Guégueré",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koper",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Niégo",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Oronkua",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouessa",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zambo",
+            "Province": "Ioba"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Batié,",
+            "Province": "Noumbièl"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boussoukoula",
+            "Province": "Noumbièl"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kpueré",
+            "Province": "Noumbièl"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Legmoin",
+            "Province": "Noumbièl"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Midébdo",
+            "Province": "Noumbièl"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boussera",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bouroum-bouroum",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Djigoué",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gaoua",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gbomblora",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kampti",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Loropéni",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Malba",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nako",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Périgban",
+            "Province": "Poni"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bagassi",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bana",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boromo",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Fara",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Oury",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pâ",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pompoie",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Poura",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sibi",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yaho",
+            "Province": "Bale"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Balavé",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kouka",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sami",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sanaba",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Solenzo",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tansila",
+            "Province": "Banwa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Barani",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bomborokuy",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bourasso",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Djibasso",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dokuy",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Doumbala",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kombori",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Madouba",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nouna",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sono",
+            "Province": "Kossi"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bondoukuy",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dédougou",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Douroula",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kona",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ouarkoye",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Safané",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tchériba",
+            "Province": "Mouhoun"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gassan",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gossina",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kougny",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Toma",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yaba",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yé",
+            "Province": "Nayala"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Di",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gomboro",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kassoum",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kiembara",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Lanfiéra",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Lankoué",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Toéni",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tougan",
+            "Province": "Sourou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bilanga",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bogandé",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Coalla",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Liptougou",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Mani",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Piéla",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Thion",
+            "Province": "Gnagna"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Diabo",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Diapangou",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Fada n'gourma",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Matiacoali",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tibga",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Yamba",
+            "Province": "Gourma"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Batiébougou",
+            "Province": "Komandjoari"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Foutouri",
+            "Province": "Komandjoari"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gayéri",
+            "Province": "Komandjoari"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Botou",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Diapaga",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kantchari",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Logobou",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Namounou",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Partiaga",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tambaga",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tansarga",
+            "Province": "Tapoa"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bama",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bobo-dioulasso",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Dande",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Faramana",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Fo",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Karangasso-sambla",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Karangasso-vigue",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koundougou",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Lena",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Padema",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Peni",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Satiri",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Toussiana",
+            "Province": "Houet"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Banzon",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Djigouéra",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kangala",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kayan",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koloko",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kourignon",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kourouma",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Morolaba",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "N'dorola",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Orodara",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Samogohiri",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Samorogouan",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Sindo",
+            "Province": "Kenedougou"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bekuy",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Béréba",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Boni",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Founzan",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Houndé",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koti",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Koumbia",
+            "Province": "Tuy"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Doulougou",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gaongo",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ipelcé",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kayao",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kombissiri",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Saponé",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Toécé",
+            "Province": "Bazega"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Guiaro",
+            "Province": "Nahouri"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Pô",
+            "Province": "Nahouri"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Tiébélé",
+            "Province": "Nahouri"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zecco",
+            "Province": "Nahouri"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Ziou",
+            "Province": "Nahouri"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Béré",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Bindé",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gogo",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Guiba",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Gomboussougou",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Manga",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nobéré",
+            "Province": "Zoundwéogo"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Kompienga",
+            "Province": "Kompienga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Madjoari pama",
+            "Province": "Kompienga"
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Nakombogo",
+            "Province": null
+        },
+        {
+            "Sequence": 10,
+            "Code": null,
+            "Libéllé long": "Zenian",
+            "Province": null
+        },
+        {
+            "Sequence": 11,
+            "Code": null,
+            "Libéllé long": "Imasgo",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 12,
+            "Code": null,
+            "Libéllé long": "Kindi",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 13,
+            "Code": null,
+            "Libéllé long": "Kokologho",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 14,
+            "Code": null,
+            "Libéllé long": "Koudougou",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 15,
+            "Code": null,
+            "Libéllé long": "Nandiala",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 16,
+            "Code": null,
+            "Libéllé long": "Nanoro",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 17,
+            "Code": null,
+            "Libéllé long": "Pella",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 18,
+            "Code": null,
+            "Libéllé long": "Poa",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 19,
+            "Code": null,
+            "Libéllé long": "Ramongo",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 20,
+            "Code": null,
+            "Libéllé long": "Sabou",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 21,
+            "Code": null,
+            "Libéllé long": "Siglé",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 22,
+            "Code": null,
+            "Libéllé long": "Soaw",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 23,
+            "Code": null,
+            "Libéllé long": "Sourgou",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 24,
+            "Code": null,
+            "Libéllé long": "Thyou",
+            "Province": "Boulkiemdé"
+        },
+        {
+            "Sequence": 25,
+            "Code": null,
+            "Libéllé long": "Dassa",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 26,
+            "Code": null,
+            "Libéllé long": "Didyr",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 27,
+            "Code": null,
+            "Libéllé long": "Godyr",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 28,
+            "Code": null,
+            "Libéllé long": "Kordié",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 29,
+            "Code": null,
+            "Libéllé long": "Kyon",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 30,
+            "Code": null,
+            "Libéllé long": "Pouni",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 31,
+            "Code": null,
+            "Libéllé long": "Réo",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 32,
+            "Code": null,
+            "Libéllé long": "Ténado",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 33,
+            "Code": null,
+            "Libéllé long": "Zamo",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 34,
+            "Code": null,
+            "Libéllé long": "Zawara",
+            "Province": "Sanguié"
+        },
+        {
+            "Sequence": 35,
+            "Code": null,
+            "Libéllé long": "Biéha",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 36,
+            "Code": null,
+            "Libéllé long": "Boura",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 37,
+            "Code": null,
+            "Libéllé long": "Léo",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 38,
+            "Code": null,
+            "Libéllé long": "Nebiélianayou",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 39,
+            "Code": null,
+            "Libéllé long": "Niambouri",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 40,
+            "Code": null,
+            "Libéllé long": "Silly",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 41,
+            "Code": null,
+            "Libéllé long": "Tô",
+            "Province": "Sissili"
+        },
+        {
+            "Sequence": 42,
+            "Code": null,
+            "Libéllé long": "Bakata",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 43,
+            "Code": null,
+            "Libéllé long": "Bougnounou",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 44,
+            "Code": null,
+            "Libéllé long": "Cassou",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 45,
+            "Code": null,
+            "Libéllé long": "Dalo",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 46,
+            "Code": null,
+            "Libéllé long": "Gao",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 47,
+            "Code": null,
+            "Libéllé long": "Sapouy",
+            "Province": "Ziro"
+        },
+        {
+            "Sequence": 48,
+            "Code": null,
+            "Libéllé long": "Banh",
+            "Province": "Loroum"
+        },
+        {
+            "Sequence": 49,
+            "Code": null,
+            "Libéllé long": "Ouidigui",
+            "Province": "Loroum"
+        },
+        {
+            "Sequence": 50,
+            "Code": null,
+            "Libéllé long": "Titao",
+            "Province": "Loroum"
+        },
+        {
+            "Sequence": 51,
+            "Code": null,
+            "Libéllé long": "Sollé",
+            "Province": "Loroum"
+        },
+        {
+            "Sequence": 52,
+            "Code": null,
+            "Libéllé long": "Arbolé",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 53,
+            "Code": null,
+            "Libéllé long": "Bagaré",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 54,
+            "Code": null,
+            "Libéllé long": "Bokin",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 55,
+            "Code": null,
+            "Libéllé long": "Gomponsom",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 56,
+            "Code": null,
+            "Libéllé long": "Kirsi",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 57,
+            "Code": null,
+            "Libéllé long": "Lâ-todin",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 58,
+            "Code": null,
+            "Libéllé long": "Pilimpikou",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 59,
+            "Code": null,
+            "Libéllé long": "Yako",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 60,
+            "Code": null,
+            "Libéllé long": "Samba",
+            "Province": "Passoré"
+        },
+        {
+            "Sequence": 61,
+            "Code": null,
+            "Libéllé long": "Barga",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 62,
+            "Code": null,
+            "Libéllé long": "Kain",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 63,
+            "Code": null,
+            "Libéllé long": "Kalsaga",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 64,
+            "Code": null,
+            "Libéllé long": "Kossouka",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 65,
+            "Code": null,
+            "Libéllé long": "Koumbri",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 66,
+            "Code": null,
+            "Libéllé long": "Namissiguima",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 67,
+            "Code": null,
+            "Libéllé long": "Oula",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 68,
+            "Code": null,
+            "Libéllé long": "Ouahigouya",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 69,
+            "Code": null,
+            "Libéllé long": "Rambo",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 70,
+            "Code": null,
+            "Libéllé long": "Séguénéga",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 71,
+            "Code": null,
+            "Libéllé long": "Tangaye",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 72,
+            "Code": null,
+            "Libéllé long": "Thiou",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 73,
+            "Code": null,
+            "Libéllé long": "Zogoré",
+            "Province": "Yatenga"
+        },
+        {
+            "Sequence": 74,
+            "Code": null,
+            "Libéllé long": "Bassi",
+            "Province": "Zondoma"
+        },
+        {
+            "Sequence": 75,
+            "Code": null,
+            "Libéllé long": "Boussou",
+            "Province": "Zondoma"
+        },
+        {
+            "Sequence": 76,
+            "Code": null,
+            "Libéllé long": "Gourcy",
+            "Province": "Zondoma"
+        },
+        {
+            "Sequence": 77,
+            "Code": null,
+            "Libéllé long": "Léba",
+            "Province": "Zondoma"
+        },
+        {
+            "Sequence": 78,
+            "Code": null,
+            "Libéllé long": "Tougo",
+            "Province": "Zondoma"
+        },
+        {
+            "Sequence": 79,
+            "Code": null,
+            "Libéllé long": "Komki-ipala",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 80,
+            "Code": null,
+            "Libéllé long": "Komsilga",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 81,
+            "Code": null,
+            "Libéllé long": "Koubri",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 82,
+            "Code": null,
+            "Libéllé long": "Pabré",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 83,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 1",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 84,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 2",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 85,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 3",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 86,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 4",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 87,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 5",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 88,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 6",
+            "Province": "Kadiogo"
+        },
+        {
+            "Sequence": 89,
+            "Code": null,
+            "Libéllé long": "Ouagadougou \narrondissement 7",
+            "Province": "Kadiogo"
+        }
+    ]
+}

@@ -1,0 +1,185 @@
+<div class="grid">
+
+    <div class="col-12">
+        <div class="card">
+            <h1>{{ isEditMode ? 'Modifier l\'offre de location' : 'Créer une nouvelle offre de location' }}</h1>
+        </div>
+    </div>
+
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()">
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="dateOffer">Date de l'offre</label>
+                    <input type="date" id="dateOffer" formControlName="dateOffer" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="rentalStatus">Statut de l'offre</label>
+                    <input type="text" id="rentalStatus" formControlName="rentalStatus" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="code">Code de l'offre</label>
+                    <input type="text" id="code" formControlName="code" class="form-control" />
+                </div>
+            </div>
+        </div>
+
+        <h3>Propriétaire</h3>
+        <div class="card mb-3">
+            <div class="card-body">
+                <div formGroupName="landLord">
+                    <div class="form-group">
+                        <label for="ifu">IFU</label>
+                        <input type="text" id="ifu" formControlName="ifu" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="typeLandLord">Type de propriétaire</label>
+                        <input type="text" id="typeLandLord" formControlName="typeLandLord" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="status">Statut</label>
+                        <input type="text" id="status" formControlName="status" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="qualityApplicant">Qualité du demandeur</label>
+                        <input type="text" id="qualityApplicant" formControlName="qualityApplicant"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="firstname">Prénom</label>
+                        <input type="text" id="firstname" formControlName="firstname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Nom</label>
+                        <input type="text" id="lastname" formControlName="lastname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="companyName">Nom de l'entreprise</label>
+                        <input type="text" id="companyName" formControlName="companyName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="bp">BP</label>
+                        <input type="text" id="bp" formControlName="bp" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumber">Numéro de téléphone</label>
+                        <input type="text" id="phoneNumber" formControlName="phoneNumber" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp</label>
+                        <input type="text" id="whatsapp" formControlName="whatsapp" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="emailAdress">Adresse email</label>
+                        <input type="email" id="emailAdress" formControlName="emailAdress" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="residencePlace">Lieu de résidence</label>
+                        <input type="text" id="residencePlace" formControlName="residencePlace" class="form-control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Bâtiments</h3>
+        <div *ngFor="let building of buildings.controls; let i = index" class="card mb-3">
+            <div [formGroupName]="i" class="card-body">
+                <div class="form-group">
+                    <label for="typeBuilding">Type de Bâtiment</label>
+                    <input type="text" id="typeBuilding" formControlName="typeBuilding" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="typePropertyTitle">Type de Titre de Propriété</label>
+                    <input type="text" id="typePropertyTitle" formControlName="typePropertyTitle"
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="status">Statut</label>
+                    <input type="text" id="status" formControlName="status" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="buildingValue">Valeur du Bâtiment</label>
+                    <input type="text" id="buildingValue" formControlName="buildingValue" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="buildingArea">Superficie du Bâtiment</label>
+                    <input type="text" id="buildingArea" formControlName="buildingArea" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="otherInformation">Autres Informations</label>
+                    <input type="text" id="otherInformation" formControlName="otherInformation" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="region">Région</label>
+                    <input type="text" id="region" formControlName="region" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="province">Province</label>
+                    <input type="text" id="province" formControlName="province" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="commune">Commune</label>
+                    <input type="text" id="commune" formControlName="commune" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="city">Ville</label>
+                    <input type="text" id="city" formControlName="city" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="district">District</label>
+                    <input type="text" id="district" formControlName="district" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="sector">Secteur</label>
+                    <input type="text" id="sector" formControlName="sector" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="section">Section</label>
+                    <input type="text" id="section" formControlName="section" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="ilot">Îlot</label>
+                    <input type="text" id="ilot" formControlName="ilot" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="plot">Parcelle</label>
+                    <input type="text" id="plot" formControlName="plot" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="street">Rue</label>
+                    <input type="text" id="street" formControlName="street" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="doornumber">Numéro de Porte</label>
+                    <input type="text" id="doornumber" formControlName="doornumber" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="geolocation">Géolocalisation</label>
+                    <input type="text" id="geolocation" formControlName="geolocation" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="rentPrice">Prix de Location</label>
+                    <input type="text" id="rentPrice" formControlName="rentPrice" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="code">Code</label>
+                    <input type="text" id="code" formControlName="code" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="listBuildingStanding">Liste des Bâtiments</label>
+                    <input type="text" id="listBuildingStanding" formControlName="listBuildingStanding"
+                        class="form-control" />
+                </div>
+                <div class="form-group">
+                    <button (click)="removeBuilding(i)" class="btn btn-danger">Supprimer ce bâtiment</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <button (click)="addBuilding()" class="btn btn-primary">Ajouter un bâtiment</button>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">{{ isEditMode ? 'Mettre à jour' : 'Créer' }}</button>
+        </div>
+    </form>
+</div>

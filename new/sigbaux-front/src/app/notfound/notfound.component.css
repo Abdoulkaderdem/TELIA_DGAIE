@@ -1,0 +1,9 @@
+.main{
+    height: 70vh;
+}
+
+.error{
+    color: white;
+    font-size: 128px;
+    font-weight: 900;
+}

@@ -1,0 +1,28 @@
+<div class="">
+    <div class="card">
+        <h1>Registre des demandes</h1>
+        <p-tabView orientation="left" (onChange)="onTabChange($event)">
+            <p-tabPanel header="NOUVELLE" class="line-height-3 m-0">
+                <app-nouvelle [requests]="requests" [ministeres]="ministeres"></app-nouvelle>
+            </p-tabPanel>
+            <p-tabPanel header="VALIDEES" class="line-height-3 m-0">
+                <app-validate [requests]="requests" [ministeres]="ministeres"></app-validate>
+            </p-tabPanel>
+            <p-tabPanel header="ENVOYEES" class="line-height-3 m-0">
+                <app-sended [requests]="requests" [ministeres]="ministeres"></app-sended>
+            </p-tabPanel>
+            <p-tabPanel header="APPROUVEES" class="line-height-3 m-0">
+                <app-approuval [requests]="requests" [ministeres]="ministeres"></app-approuval>
+            </p-tabPanel>
+            <p-tabPanel header="A COMPLETER" class="line-height-3 m-0">
+                <app-request-data-grid [requests]="requests" list_name="Demandes rejétés" [ministeres]="ministeres"></app-request-data-grid>
+            </p-tabPanel>
+            <p-tabPanel header="REJETEES" class="line-height-3 m-0">
+                <app-request-data-grid [requests]="requests" list_name="Demandes rejétés" [ministeres]="ministeres"></app-request-data-grid>
+            </p-tabPanel>
+            <p-tabPanel header="Toutes les demandes" class="line-height-3 m-0">
+                <app-all [requests]="requests" [ministeres]="ministeres" [ministeres]="ministeres"></app-all>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

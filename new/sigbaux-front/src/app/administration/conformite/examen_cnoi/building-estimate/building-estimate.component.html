@@ -1,0 +1,42 @@
+
+<p-toolbar styleClass="mb-4">
+    <div class="my-2 text-center w-full">
+        <h1 class="text-center" *ngIf="loyer">LOYER INDICATIF : {{ loyer }} FCFA</h1>
+        <p-progressBar mode="indeterminate" [style]="{ height: '12px' }" *ngIf="loading"/>
+    </div>
+</p-toolbar>
+<h3>Bâtiment retenu</h3>
+<p-table 
+    #dt [value]="buildings" 
+    [columns]="cols" 
+    responsiveLayout="scroll"
+    [paginator]="false"
+    dataKey="id">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="id">No <p-sortIcon field="id"></p-sortIcon></th>
+            <th pSortableColumn="typeBuilding">Type Building <p-sortIcon field="typeBuilding"></p-sortIcon></th>
+            <th pSortableColumn="region">Region <p-sortIcon field="region"></p-sortIcon></th>
+            <th pSortableColumn="province">Province <p-sortIcon field="province"></p-sortIcon></th>
+            <th pSortableColumn="commune">Commune <p-sortIcon field="commune"></p-sortIcon></th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-building>
+        <tr>
+            <td style="width: 4%; min-width: 6rem">{{ building.id }}</td>
+            <td style="width: 10%; min-width: 10rem">{{ building.typeBuilding }}</td>
+            <td style="width: 10%; min-width: 10rem">{{ building.region }}</td>
+            <td style="width: 10%; min-width: 10rem">{{ building.province }}</td>
+            <td style="width: 10%; min-width: 10rem">{{ building.commune }}</td>
+            <td style="width: 10%; min-width: 10rem">
+                <button 
+                    pButton 
+                    label="calculer" 
+                    class="p-button-success mr-2"
+                    (click)="onButtonClick(building.id)">
+                </button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

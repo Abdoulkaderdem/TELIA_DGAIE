@@ -1,0 +1,133 @@
+<h2>Créer une nouvelle demande de location</h2>
+<form [formGroup]="rentalForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="dateRequest">Date de la demande</label>
+    <input id="dateRequest" formControlName="dateRequest" type="date">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input id="description" formControlName="description" type="text">
+  </div>
+  <div>
+    <label for="status">Statut</label>
+    <input id="status" formControlName="status" type="text">
+  </div>
+  <div>
+    <label for="legalStatus">Statut légal</label>
+    <input id="legalStatus" formControlName="legalStatus" type="text">
+  </div>
+  <div>
+    <label for="motivationRequest">Motivation</label>
+    <input id="motivationRequest" formControlName="motivationRequest" type="text">
+  </div>
+  <div>
+    <label for="structureCurrentPosition">Position actuelle de la structure</label>
+    <input id="structureCurrentPosition" formControlName="structureCurrentPosition" type="text">
+  </div>
+  <div>
+    <label for="agentsNumber">Nombre d'agents</label>
+    <input id="agentsNumber" formControlName="agentsNumber" type="number">
+  </div>
+  <div>
+    <label for="managersNumber">Nombre de managers</label>
+    <input id="managersNumber" formControlName="managersNumber" type="number">
+  </div>
+  <div>
+    <label for="desiredGeographicalLocation">Localisation géographique souhaitée</label>
+    <input id="desiredGeographicalLocation" formControlName="desiredGeographicalLocation" type="text">
+  </div>
+  <div>
+    <label for="leasePortfolioMinistry">Ministère du portefeuille des baux</label>
+    <input id="leasePortfolioMinistry" formControlName="leasePortfolioMinistry" type="text">
+  </div>
+  <div>
+    <label for="buildingsOccupancyStatus">Statut d'occupation des bâtiments</label>
+    <input id="buildingsOccupancyStatus" formControlName="buildingsOccupancyStatus" type="text">
+  </div>
+  <div formGroupName="structure">
+    <h3>Structure</h3>
+    <div>
+      <label for="structureId">ID</label>
+      <input id="structureId" formControlName="id" type="number">
+    </div>
+    <div>
+      <label for="structureName">Nom</label>
+      <input id="structureName" formControlName="name" type="text">
+    </div>
+    <div>
+      <label for="structureDomain">Domaine</label>
+      <input id="structureDomain" formControlName="domain" type="text">
+    </div>
+    <div>
+      <label for="structurePhone">Téléphone</label>
+      <input id="structurePhone" formControlName="phone" type="text">
+    </div>
+    <div>
+      <label for="structureEmail">Email</label>
+      <input id="structureEmail" formControlName="email" type="email">
+    </div>
+    <div>
+      <label for="structureMinisterInCharge">Ministre en charge</label>
+      <input id="structureMinisterInCharge" formControlName="ministerInCharge" type="text">
+    </div>
+    <div>
+      <label for="structureNameMinistry">Nom du ministère</label>
+      <input id="structureNameMinistry" formControlName="nameMinistry" type="text">
+    </div>
+    <div>
+      <label for="structureCode">Code</label>
+      <input id="structureCode" formControlName="code" type="text">
+    </div>
+  </div>
+  <button type="submit">Soumettre</button>
+</form>
+
+<h2>Liste des demandes de location</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Date de la demande</th>
+      <th>Description</th>
+      <th>Statut</th>
+      <th>Statut légal</th>
+      <th>Motivation</th>
+      <th>Position actuelle</th>
+      <th>Nombre d'agents</th>
+      <th>Nombre de managers</th>
+      <th>Localisation souhaitée</th>
+      <th>Ministère du portefeuille des baux</th>
+      <th>Statut d'occupation des bâtiments</th>
+      <th>Structure</th>
+      <th>Caractéristiques</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of rentalRequests">
+      <td>{{ request.id }}</td>
+      <td>{{ request.dateRequest | date }}</td>
+      <td>{{ request.description }}</td>
+      <td>{{ request.status }}</td>
+      <td>{{ request.legalStatus }}</td>
+      <td>{{ request.motivationRequest }}</td>
+      <td>{{ request.structureCurrentPosition }}</td>
+      <td>{{ request.agentsNumber }}</td>
+      <td>{{ request.managersNumber }}</td>
+      <td>{{ request.desiredGeographicalLocation }}</td>
+      <td>{{ request.leasePortfolioMinistry }}</td>
+      <td>{{ request.buildingsOccupancyStatus }}</td>
+      <td>
+        <ul>
+          <li>{{ request.structure.name }} ({{ request.structure.domain }})</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li *ngFor="let characteristic of request.listCharacteristicsDto">
+            {{ characteristic.dataType }}: {{ characteristic.values }}
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>

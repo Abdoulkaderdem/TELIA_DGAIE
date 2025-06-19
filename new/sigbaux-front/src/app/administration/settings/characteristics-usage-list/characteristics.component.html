@@ -1,0 +1,167 @@
+<!-- Exemple simplifié -->
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <p-toast></p-toast>
+
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <div class="my-2">
+                        <button pButton pRipple label="Nouveau" icon="pi pi-plus" class="p-button-success mr-2"
+                            (click)="openNew()"></button>
+                        <button pButton pRipple label="Supprimer" icon="pi pi-trash" class="p-button-danger"
+                            (click)="deleteSelectedItems()"
+                            [disabled]="!selectedItems || !selectedItems.length"></button>
+                    </div>
+                </ng-template>
+            </p-toolbar>
+        
+            <p-table [value]="items" selectionMode="multiple">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th>ID</th>
+                        <th>LibCourt</th>
+                        <th>LibLong</th>
+                        <th>Prix Unitaire</th>
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-item>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox
+                                [value]="item"
+                            ></p-tableCheckbox>
+                        </td>
+                        <td>{{item.id}}</td>
+                        <td>{{item.libCourt}}</td>
+                        <td>{{item.libLong}}</td>
+                        <td>{{item.unitPrice}}</td>
+                        <td>
+                            <div class="flex">
+                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                                    (click)="editItem(item)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                    (click)="deleteItem(item)"></button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <p-dialog
+            [(visible)]="itemDialog" 
+            header="Caractéristiques batiments" 
+            [modal]="true" 
+            [style]="{width: '450px'}" 
+            class="p-fluid"
+        >
+
+            <div class="p-field">
+                <label for="libLong">Libéllé Long</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="libLong" 
+                    [(ngModel)]="item.libLong" 
+                    required>
+            </div>
+
+            <div class="p-field">
+                <label for="libLong">Libéllé Court</label>
+                <input 
+                    type="text" 
+                    pInputText 
+                    id="libCourt" 
+                    [(ngModel)]="item.libCourt" 
+                    required>
+            </div>
+
+            <div class="p-field">
+                <label for="libLong">Prix unitaire</label>
+                <input 
+                    type="number" 
+                    pInputText 
+                    id="libLong" 
+                    [(ngModel)]="item.unitPrice" 
+                    required>
+            </div>
+        
+            <p-footer>
+                <button pButton label="Annuler" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+                <button pButton label="Enregistrer" icon="pi pi-check" class="p-button-text" (click)="saveItem()"></button>
+            </p-footer>
+        </p-dialog>
+
+        <p-dialog
+            [(visible)]="deleteItemDialog"
+            header="Confirmation"
+            [modal]="true"
+            [style]="{ width: '450px' }"
+        >
+            <div class="flex align-items-center justify-content-center">
+                <i
+                    class="pi pi-exclamation-triangle mr-3"
+                    style="font-size: 2rem"
+                ></i>
+                <span *ngIf="item">
+                    Etes-vous sure de vouloir supprimer <b>{{ item.libLong }}</b>?
+                </span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-times"
+                    class="p-button-text"
+                    label="Non"
+                    (click)="deleteItemDialog = false"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-check"
+                    class="p-button-text"
+                    label="Oui"
+                    (click)="confirmDelete()"
+                ></button>
+            </ng-template>
+        </p-dialog>
+
+        <p-dialog
+            [(visible)]="deleteItemsDialog"
+            header="Confirmation"
+            [modal]="true"
+            [style]="{ width: '450px' }"
+        >
+            <div class="flex align-items-center justify-content-center">
+                <i
+                    class="pi pi-exclamation-triangle mr-3"
+                    style="font-size: 2rem"
+                ></i>
+                <span>Etes-vous sure de vouloir supprimer les éléments sélectionnés ?</span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-times"
+                    class="p-button-text"
+                    label="Non"
+                    (click)="deleteItemsDialog = false"
+                ></button>
+                <button
+                    pButton
+                    pRipple
+                    icon="pi pi-check"
+                    class="p-button-text"
+                    label="Oui"
+                    (click)="confirmDeleteSelected()"
+                ></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>

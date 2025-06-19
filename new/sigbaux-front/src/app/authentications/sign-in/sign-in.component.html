@@ -1,0 +1,63 @@
+<div class="h-screen text-bluegray-200 flex items-center justify-center main">
+    <div class="card overview-card py-8 px-6 text-overlay text-center">
+        <!-- Logo à la place du texte DGAIE -->
+        <img src="../../../assets/layout/images/logo-dgaie.png" alt="Logo DGAIE" class="mx-auto mb-4" style="width: 100px; height: auto;" />
+        
+        <h2 class="text-bluegray-200">Connexion</h2>
+        
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="mb-4">
+                <input
+                    type="text"
+                    autocomplete="off"
+                    pInputText
+                    placeholder="Adresse mail"
+                    formControlName="email"
+                    class="w-full text-bluegray-600 surface-ground"
+                    [ngClass]="{
+                        'border border-danger': loginForm.controls['email'].invalid && loginForm.controls['email'].touched
+                    }"
+                />
+            </div>
+            
+            <div class="mb-4 relative">
+                <input
+                    type="password"
+                    autocomplete="off"
+                    pInputText
+                    formControlName="pass"
+                    [type]="passwordVisible ? 'text' : 'password'"
+                    placeholder="Saisir mot de passe"
+                    required
+                    class="w-full text-bluegray-600 surface-ground"
+                    [ngClass]="{
+                        'border border-danger': loginForm.controls['pass'].invalid && loginForm.controls['pass'].touched
+                    }"
+                />
+                <i class="pi" [ngClass]="passwordVisible ? 'pi-eye-slash' : 'pi-eye'" 
+                   (click)="showHidePass()" class="absolute top-1/2 right-4 cursor-pointer transform -translate-y-1/2"></i>
+            </div>
+
+            <div *ngIf="showErrorMessage" class="form-group mt-4 alert alert-danger">
+                {{ "Email ou mot de passe incorrect" }}
+            </div>
+
+            <button
+                pButton
+                pRipple
+                [label]="submitting ? 'CONNEXION...' : 'CONNEXION'"
+                type="submit"
+                [disabled]="loginForm.invalid || submitting"
+                class="w-full text-center mt-4"
+            ></button>
+        </form>
+
+        <div *ngIf="loginForm.invalid && submitting" class="mt-4 text-brown text-center">
+            Veuillez remplir tous les champs
+        </div>
+
+        <!--p class="font-semibold text-bluegray-200 mt-6 mb-4">
+            <a [routerLink]="['/']" class="text-bluegray-600">Mot de passe oublié ?</a>
+        </p-->
+    </div>
+</div>

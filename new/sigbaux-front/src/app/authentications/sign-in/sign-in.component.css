@@ -1,0 +1,52 @@
+/* Couleur d'erreur pour le texte */
+.form_error {
+    color: red;
+}
+
+/* Container principal */
+.main {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../../../assets/images/background.jpg') center center / cover no-repeat;
+}
+
+/* Carte principale avec overlay */
+.card {
+    background: rgba(255, 255, 255, 1);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px;
+}
+
+.text-overlay {
+    color: white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form {
+    width: 100%; /* Ajuste la largeur de la forme à celle du conteneur */
+    max-width: 400px;
+}
+
+/* Classe de couleur de texte noire */
+.color1 {
+    color: black;
+}
+
+/* Marges personnalisées */
+.container1 {
+    margin-bottom: 200px;
+}

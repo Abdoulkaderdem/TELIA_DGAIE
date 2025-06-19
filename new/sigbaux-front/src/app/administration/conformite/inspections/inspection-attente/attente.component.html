@@ -1,0 +1,174 @@
+<p-toast></p-toast>
+<p-table #dt [value]="buildings" [columns]="cols" responsiveLayout="scroll" [rows]="10"
+  [globalFilterFields]="['code', 'typeBuilding', 'region', 'province', 'commune', 'city']" [paginator]="true"
+  [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+  currentPageReportTemplate="Affichage du  {first} au {last} des {totalRecords} entrées" [(selection)]="selectedBuildings"
+  selectionMode="multiple" [rowHover]="true" dataKey="id">
+  <ng-template pTemplate="caption">
+    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+      <h5 class="m-0">BÂTIMENTS A INSPECTES</h5>
+      <span class="block mt-2 md:mt-0 p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher..."
+          class="w-full sm:w-auto" />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 3rem">
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="id">No <p-sortIcon field="id"></p-sortIcon></th>
+      <th pSortableColumn="typeBuilding">Type Immeuble <p-sortIcon field="typeBuilding"></p-sortIcon></th>
+      <th pSortableColumn="region">Region <p-sortIcon field="region"></p-sortIcon></th>
+      <th pSortableColumn="province">Province <p-sortIcon field="province"></p-sortIcon></th>
+      <th pSortableColumn="commune">Commune <p-sortIcon field="commune"></p-sortIcon></th>
+      <th pSortableColumn="city">Ville <p-sortIcon field="city"></p-sortIcon></th>
+      <th pSortableColumn="district">Districte <p-sortIcon field="district"></p-sortIcon></th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-building>
+    <tr>
+      <td><p-tableCheckbox [value]="building"></p-tableCheckbox></td>
+      <td style="width: 8%; min-width: 5rem">{{ building.id }}</td>
+      <td style="width: 14%; min-width: 10rem">{{ building.typeBuilding }}</td>
+      <td style="width: 10%; min-width: 10rem">{{ building.region }}</td>
+      <td style="width: 10%; min-width: 10rem">{{ building.province }}</td>
+      <td style="width: 14%; min-width: 10rem">{{ building.commune }}</td>
+      <td style="width: 10%; min-width: 10rem">{{ building.city }}</td>
+      <td style="width: 10%; min-width: 10rem">{{ building.district }}</td>
+      <td>
+        <div class="flex">
+          <button pButton label="voir plus" class="mr-2" (click)="openNew(building)"></button>
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-dialog [(visible)]="buildingDialog" [style]="{ width: '70%' }" [header]="'Bâtiment N° ' + building.id"
+  [maximizable]="true" [modal]="true" class="p-fluid">
+  <ng-template pTemplate="content">
+    <p-toolbar styleClass="mb-4">
+      <ng-template pTemplate="left">
+        <!-- Other toolbar items if needed -->
+      </ng-template>
+
+      <ng-template pTemplate="right">
+        <button pButton pRipple label="Enregistrer un rapport d'inspection" class="p-button-help"
+          (click)="inspecter(building)"></button>
+      </ng-template>
+    </p-toolbar>
+    <div class="overflow-x-auto">
+      <table class="w-full" style="border-collapse: collapse; table-layout: auto">
+        <tbody>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Libellé</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3"><strong>Valeur</strong></td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Type de
+                Bâtiment</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.typeBuilding }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Type de Titre de
+                Propriété</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.typePropertyTitle }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Valeur du
+                Bâtiment</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.buildingValue }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Autres
+                Informations</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.otherInformation }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Région</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.region }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Province</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.province }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Commune</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.commune }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Ville</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.city }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>District</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.district }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Secteur</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.sector }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Section</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.section }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Îlot</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.ilot }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Parcelle</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.plot }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Rue</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.street }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Numéro de
+                Porte</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.doornumber }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap">
+              <strong>Géolocalisation</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.geolocation }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Prix de
+                Location</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.rentPrice }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Code</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ building.code }}</td>
+          </tr>
+          <!--tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Caractéristiques</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">
+              <ul>
+                <li *ngFor="let characteristic of building.listOfferAndCharacteristicsDto">
+                  {{ characteristic.characteristicName }}: {{ characteristic.characteristicValue }}
+                </li>
+              </ul>
+            </td>
+          </tr-->
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Standings</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">
+              <ul>
+                <li *ngFor="let standing of building.listBuildingStanding">
+                  {{ standing }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</p-dialog>

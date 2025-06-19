@@ -1,0 +1,124 @@
+<!--ul class="card p-2">
+    <li *ngFor="let item of buildings">
+        {{ item.id }}
+        <p>search-building works!</p>
+    </li>
+</ul-->
+<div class="grid p-0">
+    <div class="col-12">
+        <div class="card px-6 py-6">
+            <p-toast></p-toast>
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                    <!--div class="my-2">
+                        <button pButton pRipple label="Enregistrer" icon="pi pi-plus" class="p-button-success mr-2"
+                            (click)="openNew()"></button>
+                        <button pButton pRipple label="Désactiver" icon="pi pi-trash" class="p-button-danger"
+                            (click)="deleteSelectedBuildings()"
+                            [disabled]="!selectedBuildings || !selectedBuildings.length"></button>
+                    </div-->
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <button 
+                        pButton 
+                        pRipple 
+                        label="Valider les batiements sélectionnés" 
+                        class="p-button-help"
+                        (click)="ratacher()"
+                    ></button>
+                </ng-template>
+            </p-toolbar>
+
+            <p-table
+                #dt [value]="buildings" 
+                [columns]="cols" 
+                responsiveLayout="scroll" 
+                [rows]="10"
+                [globalFilterFields]="['code', 'typeBuilding', 'region', 'province', 'commune', 'city']"
+                [paginator]="true" 
+                [rowsPerPageOptions]="[10, 20, 30]" 
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Affichage du  {first} au {last} des {totalRecords} entrées"
+                [(selection)]="selectedBuildings" 
+                selectionMode="multiple" 
+                [rowHover]="true" 
+                dataKey="id"
+            >
+                <!--ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h5 class="m-0">GESTION DES BÂTIMENTS</h5>
+                        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher..."
+                                class="w-full sm:w-auto" />
+                        </span>
+                    </div>
+                </ng-template-->
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                        <th pSortableColumn="No">No <p-sortIcon field="No"></p-sortIcon>
+                        <th pSortableColumn="typeBuilding">Type Building <p-sortIcon field="typeBuilding"></p-sortIcon>
+                        </th>
+                        <th pSortableColumn="typePropertyTitle">Property Title <p-sortIcon
+                                field="typePropertyTitle"></p-sortIcon></th>
+                        <th pSortableColumn="buildingValue">Value <p-sortIcon field="buildingValue"></p-sortIcon></th>
+                        <th pSortableColumn="region">Region <p-sortIcon field="region"></p-sortIcon></th>
+                        <th pSortableColumn="province">Province <p-sortIcon field="province"></p-sortIcon></th>
+                        <th pSortableColumn="commune">Commune <p-sortIcon field="commune"></p-sortIcon></th>
+                        <th pSortableColumn="city">City <p-sortIcon field="city"></p-sortIcon></th>
+                        <th pSortableColumn="district">District <p-sortIcon field="district"></p-sortIcon></th>
+                        <th pSortableColumn="sector">Sector <p-sortIcon field="sector"></p-sortIcon></th>
+                        <th pSortableColumn="section">Section <p-sortIcon field="section"></p-sortIcon></th>
+                        <th pSortableColumn="ilot">Ilot <p-sortIcon field="ilot"></p-sortIcon></th>
+                        <th pSortableColumn="plot">Plot <p-sortIcon field="plot"></p-sortIcon></th>
+                        <th pSortableColumn="street">Street <p-sortIcon field="street"></p-sortIcon></th>
+                        <th pSortableColumn="doornumber">Door Number <p-sortIcon field="doornumber"></p-sortIcon></th>
+                        <th pSortableColumn="geolocation">Geolocation <p-sortIcon field="geolocation"></p-sortIcon></th>
+                        <th pSortableColumn="rentPrice">Rent Price <p-sortIcon field="rentPrice"></p-sortIcon></th>
+                        <th pSortableColumn="code">Code <p-sortIcon field="code"></p-sortIcon></th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-building>
+                    <tr>
+                        <td><p-tableCheckbox [value]="building"></p-tableCheckbox></td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.id }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.typeBuilding }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.typePropertyTitle }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.buildingValue }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.region }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.province }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.commune }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.city }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.district }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.sector }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.section }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.ilot }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.plot }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.street }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.doornumber }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.geolocation }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.rentPrice }}</td>
+                        <td style="width: 14%; min-width: 10rem">{{ building.code }}</td>
+                        <td>
+                            <!--div class="flex">
+                                <button 
+                                    pButton 
+                                    pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success mr-2"
+                                    label="voir plus"
+                                ></button>
+                            </div-->
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<p-toast></p-toast>

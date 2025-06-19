@@ -1,0 +1,188 @@
+<div class="grid">
+    <div class="col-12">
+        <div class="card p-0">
+            <p-toast></p-toast>
+
+            <p-table #dt [value]="requests" [columns]="cols" responsiveLayout="scroll" [rows]="10"
+                [globalFilterFields]="['description', 'status', 'legalStatus']" [paginator]="true"
+                [rowsPerPageOptions]="[10, 20, 30]" [showCurrentPageReport]="true"
+                currentPageReportTemplate="Affichage du  {first} au {last} des {totalRecords} entrées"
+                [(selection)]="selectedRequests" selectionMode="multiple" [rowHover]="true" dataKey="id">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
+                        <h5 class="m-0">Demandes validées</h5>
+                        <span class="block mt-2 md:mt-0 p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="onGlobalFilter($event)" placeholder="Rechercher..."
+                                class="w-full sm:w-auto" />
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="id">NO <p-sortIcon field="id"></p-sortIcon></th>
+                        <th pSortableColumn="dateRequest">DATE <p-sortIcon field="dateRequest"></p-sortIcon></th>
+                        <th pSortableColumn="ministere">MINISTERE <p-sortIcon field="ministere"></p-sortIcon></th>
+                        <th pSortableColumn="structure">STRUCTURE <p-sortIcon field="structure"></p-sortIcon></th>
+                        <th pSortableColumn="agentsNumber">AGENTS <p-sortIcon field="agentsNumber"></p-sortIcon></th>
+                        <th pSortableColumn="managersNumber">
+                          MANAGERS
+                          <p-sortIcon field="managersNumber"></p-sortIcon>
+                        </th>
+                        <th></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-request>
+                    <tr>
+                        <td style="min-width: 6rem">{{ request.id }}</td>
+                        <td style="min-width: 13rem">{{ formatDate(request.dateRequest) }}</td>
+                        <td style="min-width: 10rem">{{ getMinistryName(request.structure.idMinistry) }}</td>
+                        <td style="min-width: 15rem">{{ request.structure.name }}</td>
+                        <td style="min-width: 10rem">{{ request.agentsNumber }}</td>
+                        <td style="min-width: 10rem">{{ request.managersNumber }}</td>
+                        <td style="width: 22%;min-width: 10rem">
+                            <div class="flex">
+                                <button pButton label="voir plus" class="mr-2" (click)="editRequest(request)">
+                                </button>
+                                <button pButton label="envoyer" class="p-button-success mr-2"
+                                    (click)="valideRequestConfirmation(request)">
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <p-dialog
+  [(visible)]="showDialog"
+  [style]="{ width: '70%' }"
+  [header]="'Demande N° '+ rentalRequest.id"
+  [maximizable]="true"
+  [modal]="true"
+  class="p-fluid"
+>
+  <ng-template pTemplate="content">
+    <div class="overflow-x-auto">
+      <table class="w-full" style="border-collapse: collapse; table-layout: auto">
+        <tbody>
+          <tr *ngIf="rentalRequest.structure">
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Structure</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.structure.name }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Date de la demande</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ formatDate(rentalRequest.dateRequest) }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Description</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.description }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Motivation de la demande</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.motivationRequest }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Position actuelle de la structure</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.structureCurrentPosition }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Nombre d'agents</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.agentsNumber }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Nombre de directeurs</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.managersNumber }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Région</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.region }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Province</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.province }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Commune</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.commune }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Ville</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.city }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>District</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.district }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Secteur</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.sector }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Région souhaitée</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.regionDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Province souhaitée</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.provinceDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Commune souhaitée</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.communeDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Ville souhaitée</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.cityDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>District souhaité</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.districtDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Secteur souhaité</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.sectorDesired }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Portefeuille de baux du ministère</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.leasePortfolioMinistry }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Statut d'occupation des bâtiments</strong></td>
+            <td class="text-right py-3 border-bottom-1 surface-border px-3">{{ rentalRequest.buildingsOccupancyStatus }}</td>
+          </tr>
+          <tr>
+            <td class="text-left py-3 border-bottom-1 surface-border white-space-nowrap"><strong>Liste des usages des bâtiments</strong></td>
+            <td>
+              <ul class="card p-2">
+                <li *ngFor="let usage of rentalRequest.listBuildingUsageDto">
+                  {{ usage.libLong }}
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</p-dialog>
+
+
+        <p-dialog [(visible)]="validateRequestDialog" header="ENVOIE DEMANDE" [modal]="true"
+            [style]="{ width: '450px' }">
+            <div class="flex align-items-center justify-content-center">
+                <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem;color:red"></i>
+                <span *ngIf="request">
+                    Êtes-vous sûr de vouloir envoyer la demande N°<b>{{ request.id }}</b> de
+                    <b>{{ request.structure?.name }}</b>
+                    ?
+                </span>
+            </div>
+            <ng-template pTemplate="footer">
+                <button pButton pRipple icon="pi pi-times" class="p-button-text" label="Non"
+                    (click)="validateRequestDialog = false"></button>
+                <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Oui"
+                    (click)="validateRequest()"></button>
+            </ng-template>
+        </p-dialog>
+    </div>
+</div>

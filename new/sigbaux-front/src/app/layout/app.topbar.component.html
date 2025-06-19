@@ -1,0 +1,164 @@
+<div
+    class="layout-topbar"
+    [ngClass]="{'border-bottom-none': layoutService.config().topbarTheme !== 'light'}"
+>
+    <div class="layout-topbar-start">
+        <a
+            #mobileMenuButton
+            class="layout-menu-button lg:hidden"
+            (click)="onMenuButtonClick()"
+            pRipple
+        >
+            <i class="pi pi-bars"></i>
+        </a>
+        <a class="layout-topbar-logo" routerLink="/">
+            <img
+                src="assets/layout/images/logo-dgaie.png"
+                alt="poseidon-layout"
+            />
+            <span class="text-black text-700 text-lg ml-2">SIG-BAUX</span>
+        </a>
+        <a
+            class="lg:hidden"
+            pStyleClass="@next"
+            enterFromClass="hidden"
+            enterActiveClass="scalein"
+            leaveToClass="hidden"
+            leaveActiveClass="fadeout"
+            [hideOnOutsideClick]="true"
+        >
+            <!--img
+                src="assets/layout/images/avatar-profile.png"
+                alt="--"
+                class="cursor-pointer"
+            /-->
+            <i class="pi pi-cog pi-user text-lg mr-3"></i>
+            <span>O.Issa</span>
+        </a>
+        <div class="layout-topbar-menu shadow-2 px-3 hidden" style="top: 9rem">
+            <ul class="list-none p-0 m-0">
+                <li class="mb-2">
+                    <div class="flex gap-3 p-3 bg-primary-600">
+                        <!--img
+                            src="assets/layout/images/avatar-profile.png"
+                            alt="demo"
+                        /-->
+                        <div class="flex flex-column cursor-pointer">
+                            <span class="font-semibold text-white">
+                                {{ user.firstName }} {{ user.lastName }}
+                            </span>
+                            <span class="text-xs font-normal text-white"
+                                >{{ user.typeUser }}</span
+                            >
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 px-4 flex gap-2 cursor-pointer">
+                    <a routerLink="/settings">
+                        <i class="pi pi-cog pi-star text-lg mr-3"></i>
+                        <span class="font-semibold">Paramètres</span>
+                    </a>
+                </li>
+                <li class="py-3 px-4 flex gap-2 cursor-pointer">
+                    <a (click)="logout()">
+                        <i class="pi pi-power-off pi-image text-lg mr-3"></i>
+                        <span class="font-semibold">Déconnexion</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layout-topbar-end surface-border">
+        <div class="layout-topbar-actions-start">
+            <a
+                *ngIf="!layoutService.isHorizontal()"
+                #menuButton
+                class="layout-menu-button hidden lg:flex"
+                (click)="onMenuButtonClick()"
+                pRipple
+            >
+                <i class="pi pi-bars"></i>
+            </a>
+        </div>
+
+        <div class="layout-topbar-actions-end">
+            <ul class="layout-topbar-items">
+                <li class="layout-topbar-profile">
+                    <a
+                        *ngIf="!layoutService.isMobile()"
+                        pStyleClass="@next"
+                        enterFromClass="hidden"
+                        enterActiveClass="scalein"
+                        leaveToClass="hidden"
+                        leaveActiveClass="fadeout"
+                        [hideOnOutsideClick]="true"
+                    >
+                        <div class="flex gap-2">
+                            <!--img
+                                src="assets/demo/images/avatar/black-icon.jpeg"
+                                alt="demo"
+                            /-->
+                            <div class="flex flex-column">
+                                <span class="font-semibold">
+                                    {{ user.firstName }} {{ user.lastName }}
+                                </span>
+                                <span class="text-sm">{{ user.typeUser }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="layout-topbar-menu p-0 shadow-2 hidden">
+                        <ul class="list-none p-0 m-0">
+                            <li class="mb-2">
+                                <div class="flex gap-3 p-3 bg-primary-600">
+                                    <!--img
+                                        src="assets/demo/images/avatar/black-icon.jpeg"
+                                        alt="demo"
+                                    /-->
+                                    <div
+                                        class="flex flex-column cursor-pointer"
+                                    >
+                                        <span class="font-semibold text-white"
+                                            >{{ user.email }}</span
+                                        >
+                                        <span class="text-xs font-normal text-white">
+                                            {{ user.role }}
+                                        </span
+                                        >
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-3 px-4 flex gap-2 cursor-pointer">
+                                <a routerLink="/settings">
+                                    <i class="pi pi-cog pi-star text-lg"></i>
+                                    <span class="font-semibold mx-3"
+                                        >Paramètres</span
+                                    >
+                                </a>
+                            </li>
+                            <li class="py-3 px-4 flex gap-2 cursor-pointer">
+                                <a (click)="logout()">
+                                    <i
+                                        class="pi pi-power-off pi-image text-lg"
+                                    ></i>
+                                    <span class="font-semibold mx-3">
+                                        Déconnexion
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!--li class="layout-rightpanel-button">
+                    <a
+                        (click)="
+                            layoutService.state.rightMenuActive = !layoutService.state.rightMenuActive
+                        "
+                    >
+                        <i class="pi pi-arrow-left"></i>
+                    </a>
+                </li-->
+            </ul>
+        </div>
+    </div>
+</div>

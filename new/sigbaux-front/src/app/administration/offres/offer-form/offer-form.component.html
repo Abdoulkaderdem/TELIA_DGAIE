@@ -1,0 +1,300 @@
+<div class="grid">
+    <!-- Titre Principal -->
+    <div class="col-12">
+        <div class="card" style="background-color: #e0f7fa; border: 1px solid #4db6ac; border-radius: 8px; padding: 16px;">
+            <h1 style="color: #00796b;">{{ isEditMode ? 'Modifier l\'offre de location' : 'Créer une nouvelle offre de location' }}</h1>
+        </div>
+    </div>
+
+    <!-- Formulaire de Recherche de Bailleur -->
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()" class="col-12">
+        <div class="card" style="background-color: #fff3e0; border: 1px solid #ffb74d; border-radius: 8px; padding: 16px;">
+            <h5 style="color: #e65100;">Rechercher un bailleur</h5>
+            <div class="grid">
+                <div class="col-12">
+                    <p-inputGroup>
+                        <input type="text" pInputText placeholder="Entrer le numéro IFU du bailleur" formControlName="ifu" style="border-radius: 4px 0 0 4px;" />
+                        <button type="submit" pButton label="Rechercher" class="p-button-primary"></button>
+                        <button type="button" pButton label="Rénitialiser" class="p-button-danger" (click)="resetLandLordForm()"></button>
+                    </p-inputGroup>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Formulaire d'Offre -->
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit()" class="col-12 p-0">
+        <!-- Informations Bailleur -->
+        <div class="col-12 p-fluid">
+            <div class="card" style="background-color: #e8f5e9; border: 1px solid #81c784; border-radius: 8px; padding: 16px;">
+                <div formGroupName="landLord">
+                    <h3 style="color: #388e3c;">Informations Bailleur</h3>
+                    <div class="grid">
+                        <!-- Champ ID -->
+                        <div class="col-12 md:col-4">
+                            <label for="landLordId" class="font-bold">ID</label>
+                            <input id="landLordId" formControlName="id" pInputText [disabled]="true">
+                        </div>
+
+                        <!-- Champ IFU -->
+                        <div class="col-12 md:col-4">
+                            <label for="ifu" class="font-bold">IFU</label>
+                            <input id="ifu" formControlName="ifu" pInputText type="text">
+                        </div>
+
+                        <!-- Type de Bailleur -->
+                        <div class="col-12 md:col-4">
+                            <label for="typeLandLord" class="font-bold">Type de bailleur</label>
+                            <p-dropdown id="typeLandLord" [options]="typeLandlords" [(ngModel)]="selected_landlord_type"
+                                placeholder="Selectionner le type de bailleur" [showClear]="false" formControlName="typeLandLord"></p-dropdown>
+                        </div>
+
+                        <!-- Qualité du Bailleur -->
+                        <div class="col-12 md:col-4">
+                            <label for="qualityApplicant" class="font-bold">Qualité du bailleur</label>
+                            <p-dropdown [options]="quality_applicant" [(ngModel)]="selected_quality"
+                                placeholder="Selectionner la qualité du bailleur" [showClear]="false" formControlName="qualityApplicant"></p-dropdown>
+                        </div>
+
+                        <!-- Autres Champs du Formulaire Bailleur -->
+                        <div class="col-12 md:col-4">
+                            <label for="firstname" class="font-bold">Nom</label>
+                            <input pInputText id="firstname" formControlName="firstname" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="lastname" class="font-bold">Prénom(s)</label>
+                            <input pInputText id="lastname" formControlName="lastname" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="companyName" class="font-bold">Nom de l'entreprise</label>
+                            <input pInputText id="companyName" formControlName="companyName" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="bp" class="font-bold">Boite Postale</label>
+                            <input pInputText id="bp" formControlName="bp" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="phoneNumber" class="font-bold">Téléphone</label>
+                            <input pInputText id="phoneNumber" formControlName="phoneNumber" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="whatsapp" class="font-bold">Whatsapp</label>
+                            <input pInputText id="whatsapp" formControlName="whatsapp" type="text">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="emailAdress" class="font-bold">Adresse Email</label>
+                            <input pInputText id="emailAdress" formControlName="emailAdress" type="email">
+                        </div>
+
+                        <div class="col-12 md:col-4">
+                            <label for="residencePlace" class="font-bold">Lieu de Residence</label>
+                            <input pInputText id="residencePlace" formControlName="residencePlace" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Informations sur le Bâtiment -->
+        <div class="col-12 p-fluid" formArrayName="buildingDtos">
+            <div class="card" style="background-color: #fce4ec; border: 1px solid #f06292; border-radius: 8px; padding: 16px;">
+                <h3 style="color: #c2185b;">Informations sur le Bâtiment</h3>
+                <div class="grid">
+                    <!-- Type de Bâtiment -->
+                    <div class="col-12 md:col-4">
+                        <label for="typeBuilding" class="font-bold">Type de bâtiment</label>
+                        <p-dropdown [options]="typeBuildings" [(ngModel)]="selected_typeBuilding"
+                            placeholder="Sélectionner une option" formControlName="typeBuilding"></p-dropdown>
+                    </div>
+                    <!-- Titre d'occupation -->
+                    <div class="col-12 md:col-4">
+                        <label for="typePropertyTitle" class="font-bold">Titre d'occupation</label>
+                        <p-dropdown [options]="typePropertyTitles" [(ngModel)]="selected_typePropertyTitle"
+                            placeholder="Sélectionner une option" formControlName="typePropertyTitle"></p-dropdown>
+                    </div>
+                    <!-- Type(s) d'usage -->
+                    <div class="col-12 md:col-4">
+                        <label for="buildingsOccupancyStatus" class="font-bold">Type(s) d'usage :</label>
+                        <p-multiSelect [options]="typeUsages" placeholder="Sélectionner le(s) type(s) d'usage(s)" [filter]="false"
+                            formControlName="listBuildingOfferUsage">
+                            <ng-template let-usage pTemplate="item">
+                                <div class="flex align-items-center">
+                                    <span class="ml-2">{{ usage.label }}</span>
+                                </div>
+                            </ng-template>
+                        </p-multiSelect>
+                        <small *ngIf="getErrorMessage('listBuildingOfferUsage')" class="p-error">{{
+                            getErrorMessage('listBuildingOfferUsage') }}</small>
+                    </div>
+                    <!-- Standing de l'immeuble -->
+                    <div class="col-12 md:col-4">
+                        <label for="buildingStanding" class="font-bold">Standing de l'immeuble</label>
+                        <p-multiSelect [options]="buildingStandings" [(ngModel)]="selectedMulti"
+                            placeholder="Sélectionner une option" [filter]="false"
+                            formControlName="listBuildingStanding">
+                            <ng-template let-standing pTemplate="item">
+                                <div class="flex align-items-center">
+                                    <span class="ml-2">{{ standing.label }}</span>
+                                </div>
+                            </ng-template>
+                        </p-multiSelect>
+                    </div>
+                    <!-- Valeur du bâtiment -->
+                    <div class="col-12 md:col-4">
+                        <label for="buildingValue" class="font-bold">Valeur du bâtiment</label>
+                        <input pInputText id="buildingValue" formControlName="buildingValue" type="text">
+                    </div>
+                    <!-- Autres informations -->
+                    <div class="col-12 md:col-4">
+                        <label for="otherInformation" class="font-bold">Autres informations</label>
+                        <input pInputText id="otherInformation" formControlName="otherInformation" type="text">
+                    </div>
+                    <!-- Nombre de pièces -->
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfRoom" class="font-bold">Nombre de pièces :</label>
+                        <input type="number" id="numberOfRoom" formControlName="numberOfRoom" pInputText />
+                        <small *ngIf="getErrorMessage('numberOfRoom')" class="p-error">{{
+                            getErrorMessage('numberOfRoom') }}</small>
+                    </div>
+                    <!-- Nombre de salle de réunion -->
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfRoomMeeting" class="font-bold">Nombre de salle de réunion :</label>
+                        <input type="number" id="numberOfRoomMeeting" formControlName="numberOfRoomMeeting"
+                            pInputText />
+                        <small *ngIf="getErrorMessage('numberOfRoomMeeting')" class="p-error">{{
+                            getErrorMessage('numberOfRoomMeeting')
+                            }}</small>
+                    </div>
+                    <!-- Nombre de toilettes -->
+                    <div class="col-12 md:col-4">
+                        <label for="numberOfBathroom" class="font-bold">Nombre de toilettes :</label>
+                        <input type="number" id="numberOfBathroom" formControlName="numberOfBathroom" pInputText />
+                        <small *ngIf="getErrorMessage('numberOfBathroom')" class="p-error">
+                            {{ getErrorMessage('numberOfBathroom') }}
+                        </small>
+                    </div>
+                    <!-- Région -->
+                    <div class="col-12 md:col-4">
+                        <label for="region" class="font-bold">Région</label>
+                        <p-dropdown [options]="regions" [(ngModel)]="selected_region"
+                            placeholder="Sélectionner la région" [showClear]="true" formControlName="region"
+                            (onChange)="onRegionChange($event.value)"></p-dropdown>
+                    </div>
+                    <!-- Province -->
+                    <div class="col-12 md:col-4">
+                        <label for="province" class="font-bold">Province</label>
+                        <p-dropdown [options]="filteredProvincesOptions" [(ngModel)]="selected_province"
+                            placeholder="Sélectionner la province" [showClear]="true" formControlName="province"
+                            (onChange)="onProvinceChange($event.value)"></p-dropdown>
+                    </div>
+                    <!-- Département/Commune -->
+                    <div class="col-12 md:col-4">
+                        <label for="departement" class="font-bold">Département/Commune</label>
+                        <p-dropdown [options]="filteredDepartementsOptions" [(ngModel)]="selected_departement"
+                            placeholder="Sélectionner le département" [showClear]="true" formControlName="commune"
+                            (onChange)="onDepartementChange($event.value)"></p-dropdown>
+                    </div>
+                    <!-- Secteur/Village -->
+                    <div class="col-12 md:col-4">
+                        <label for="city" class="font-bold">Secteur/Village</label>
+                        <p-dropdown [options]="filteredSecteursOptions" [(ngModel)]="selected_secteur"
+                            placeholder="Sélectionner le secteur ou village" [showClear]="true"
+                            formControlName="city"></p-dropdown>
+                    </div>
+                    <!-- Quartier -->
+                    <div class="col-12 md:col-4">
+                        <label for="district" class="font-bold">Quartier</label>
+                        <input pInputText id="district" formControlName="district" type="text">
+                    </div>
+                    <!-- Secteur -->
+                    <div class="col-12 md:col-4">
+                        <label for="sector" class="font-bold">Secteur</label>
+                        <input pInputText id="sector" formControlName="sector" type="text">
+                    </div>
+                    <!-- Section -->
+                    <div class="col-12 md:col-4">
+                        <label for="section" class="font-bold">Section</label>
+                        <input pInputText id="section" formControlName="section" type="text">
+                    </div>
+                    <!-- Lot -->
+                    <div class="col-12 md:col-4">
+                        <label for="ilot" class="font-bold">Lot</label>
+                        <input pInputText id="ilot" formControlName="ilot" type="text">
+                    </div>
+                    <!-- Parcelle -->
+                    <div class="col-12 md:col-4">
+                        <label for="plot" class="font-bold">Parcelle</label>
+                        <input pInputText id="plot" formControlName="plot" type="text">
+                    </div>
+                    <!-- Rue -->
+                    <div class="col-12 md:col-4">
+                        <label for="street" class="font-bold">Rue</label>
+                        <input pInputText id="street" formControlName="street" type="text">
+                    </div>
+                    <!-- Numéro de porte -->
+                    <div class="col-12 md:col-4">
+                        <label for="doornumber" class="font-bold">Numéro de porte</label>
+                        <input pInputText id="doornumber" formControlName="doornumber" type="text">
+                    </div>
+                    <!-- Géolocalisation -->
+                    <div class="col-12 md:col-4">
+                        <label for="geolocation" class="font-bold">Géolocalisation</label>
+                        <input pInputText id="geolocation" formControlName="geolocation" type="text">
+                    </div>
+                    <!-- Prix de location -->
+                    <div class="col-12 md:col-4">
+                        <label for="rentPrice" class="font-bold">Prix de location</label>
+                        <input pInputText id="rentPrice" formControlName="rentPrice" type="text">
+                    </div>
+                    <!-- Fichiers joints -->
+                    <div class="col-12 md:col-8">
+                        <label for="file" class="font-bold">Fichiers joints</label><br>
+                        <input id="file" pInputText multiple class="w-full" type="file" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <!-- Informations Complémentaires -->
+        <div class="col-12 p-fluid" formArrayName="listOfferAndCharacteristicsDto">
+            <div class="card" style="background-color: #fff8e1; border: 1px solid #ffd54f; border-radius: 8px; padding: 16px;">
+                <h3 style="color: #ffa000;">Informations complémentaires</h3>
+                <div class="grid">
+                    <div class="col-12">
+                        <div *ngFor="let inspection of listOfferAndCharacteristicsDtos.controls; let i = index" [formGroupName]="i" class="grid">
+                            <div class="col-5">
+                                <p-dropdown [options]="filteredItems(i)" formControlName="characteristics"
+                                    placeholder="Sélectionner un item" filterPlaceholder="Rechercher" [showClear]="false" [style]="{width: '100%'}">
+                                </p-dropdown>
+                            </div>
+                            <div class="col-5">
+                                <input id="value" type="number" pInputText formControlName="values" [style]="{width: '100%'}">
+                            </div>
+                            <div class="col-2">
+                                <button type="button" pButton icon="pi pi-trash" class="p-button-danger" (click)="removeDetails(i)"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" pButton icon="pi pi-plus" label="Ajouter Détails" class="p-button-success flex" (click)="addDetails()"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bouton de Soumission -->
+        <div class="col-12 p-fluid">
+            <button type="submit" pButton pRipple class="p-button-primary" 
+                [label]="isEditMode ? 'Mettre à jour l\'offre' : 'Enregistrer l\'offre'"></button>
+        </div>
+    </form>
+</div>
+
+<p-toast></p-toast>

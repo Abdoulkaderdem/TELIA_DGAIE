@@ -1,0 +1,100 @@
+<div class="main-content">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <div class="position-relative mx-n4 mt-n4">
+                <div class="profile-wid-bg profile-setting-img">
+                    <!-- <img src="assets/images/profile-bg.jpg" class="profile-wid-img" alt=""> -->
+                    <div class="overlay-content">
+                        <div class="text-end p-3">
+                            <div class="p-0 ms-auto rounded-circle profile-photo-edit">
+                                <input id="profile-foreground-img-file-input" type="file"
+                                    class="profile-foreground-img-file-input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xxl-3">
+                    <div class="card mt-n5">
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
+                                </div>
+                                <h5 class="fs-16 mb-1">
+                                    <span style="color: darkblue; font-size: x-large; font-weight: bold;">
+                                        {{userConnected.firstName}} - {{userConnected.lastName}}
+                                    </span>
+                                </h5>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <!--end card-->
+                </div>
+                <!--end col-->
+                <div class="col-xxl-9">
+                    <div class="card mt-xxl-n5">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs-custom rounded card-header-tabs border-bottom-0" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="#personalDetails" role="tab">
+                                        <i class="fas fa-home"></i> Détails Personnel
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="personalDetails" role="tabpanel">
+                                    <form #editUser="ngForm" (ngSubmit)="editUser.valid && onSubmit()">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="firstnameInput" class="form-label">Prenom</label>
+                                                    <input type="text" class="form-control" name="firstnameInput" id="firstnameInput" placeholder="Entrer le prenom" 
+                                                    [(ngModel)]="userConnected.firstName" #firstnameInput="ngModel" required>
+                                                    <div class="form_error" *ngIf="firstnameInput.errors && editUser.submitted">
+                                                        Saisir le prenom !
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-lg-6">
+                                                <div class="mb-3">
+                                                    <label for="lastnameInput" class="form-label">Nom</label>
+                                                    <input type="text" class="form-control" name="lastnameInput" id="lastnameInput" placeholder="Entrer le nom" 
+                                                    [(ngModel)]="userConnected.lastName" #lastnameInput="ngModel" required>
+                                                    <div class="form_error" *ngIf="lastnameInput.errors && editUser.submitted">
+                                                        Saisir le nom !
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                            <div class="col-lg-12">
+                                                <div class="hstack gap-2 justify-content-end">
+                                                    <button type="submit" class="btn btn-primary">Updates</button>
+                                                    <a type="button" class="btn btn-soft-success" [routerLink]="['../../profile']">Cancel</a>
+                                                </div>
+                                            </div>
+                                            <!--end col-->
+                                        </div>
+                                        <!--end row-->
+                                    </form>
+                                </div>
+                                <!--end tab-pane-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end col-->
+            </div>
+            <!--end row-->
+
+        </div>
+        <!-- container-fluid -->
+    </div><!-- End Page-content -->
+</div>

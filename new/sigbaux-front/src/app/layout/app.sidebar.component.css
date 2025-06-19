@@ -1,0 +1,9 @@
+.root{
+    --green-color : rgb(5, 122, 50);
+    --red-color: rgb(190, 49, 44);
+}
+
+.layout-menu-container{
+    background-color: #009345;
+    color: rgb(22, 22, 22);
+}

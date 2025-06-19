@@ -1,0 +1,31 @@
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .tab-panel {
+    line-height: 1.5;
+    margin: 0;
+    /* Ajoutez d'autres styles communs ici */
+  }
+  
+  @media (max-width: 768px) {
+    .p-tabView {
+      /* L'orientation des onglets peut nécessiter des ajustements dans la bibliothèque utilisée */
+      /* Exemple générique */
+      flex-direction: column;
+    }
+  
+    .card h1 {
+      font-size: 20px;
+    }
+  }
+  

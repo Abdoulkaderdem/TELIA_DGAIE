@@ -1,0 +1,22 @@
+<div class="">
+    <div class="card">
+        <h1>Données de base</h1>
+        <p-tabView orientation="left" (onChange)="onTabChange($event)">
+            <p-tabPanel header="Ministères et institutions" class="line-height-3 m-0">
+                <app-ministry></app-ministry>
+            </p-tabPanel>
+            <p-tabPanel header="Structures ministérielles" class="line-height-3 m-0">
+                <app-structure></app-structure>
+            </p-tabPanel>
+            <p-tabPanel header="Type d'usage" class="line-height-3 m-0">
+                <app-type-usage></app-type-usage>
+            </p-tabPanel>
+            <p-tabPanel header="Caractéristiques batiments" class="line-height-3 m-0">
+                <app-characteristics></app-characteristics>
+            </p-tabPanel>
+            <p-tabPanel header="Comité de validation" class="line-height-3 m-0">
+                <app-validation-committee></app-validation-committee>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

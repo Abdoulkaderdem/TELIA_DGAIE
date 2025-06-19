@@ -1,0 +1,11 @@
+.card {
+    margin: 10px;
+}
+
+.card-header {
+    font-size: 1.2em;
+}
+
+.card-body {
+    font-size: 2em;
+}

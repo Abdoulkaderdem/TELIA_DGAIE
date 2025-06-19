@@ -1,0 +1,115 @@
+<div class="card">
+    <p-toast></p-toast>
+    <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+            <h1>REGISTRE DES FACTURES</h1>
+        </ng-template>
+
+        <!--ng-template pTemplate="right">
+            <button pButton pRipple label="Trier par date d'échéance" icon="pi pi-sort-alt" class="p-button-help"
+                (click)="sortByDueDate()"></button>
+        </ng-template-->
+    </p-toolbar>
+
+    <p-table [value]="invoices"
+        [globalFilterFields]="['id', 'contractId', 'amount', 'dueDate', 'description', 'invoiceReference']" dataKey="id"
+        [columns]="cols" responsiveLayout="scroll" [rows]="10">
+        <ng-template pTemplate="header">
+            <tr>
+                <!--th pSortableColumn="id">
+                    ID
+                    <p-sortIcon field="id"></p-sortIcon>
+                </th--><th pSortableColumn="invoiceReference">
+                    Réf. Facture
+                    <p-sortIcon field="invoiceReference"></p-sortIcon>
+                </th>
+                <th pSortableColumn="contractId">
+                    Réf. Contrat
+                    <p-sortIcon field="contractId"></p-sortIcon>
+                </th>
+                <th>IFU Bailleur</th>
+                <th>Identité Bailleur</th>
+                <th pSortableColumn="dueDate">
+                    Période
+                    <p-sortIcon field="dueDate"></p-sortIcon>
+                </th>
+                <!--th pSortableColumn="description">
+                    Objet
+                    <p-sortIcon field="description"></p-sortIcon>
+                </th-->
+                <th pSortableColumn="amount">
+                    Montant
+                    <p-sortIcon field="amount"></p-sortIcon>
+                </th>
+                <th pSortableColumn="status">
+                    Statut
+                    <p-sortIcon field="status"></p-sortIcon>
+                </th>
+                <th>Actions</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-invoice>
+            <tr>
+                <!--td>{{ invoice.id }}</td-->
+                <td>FL2024{{ invoice.invoiceReference }}</td>
+                <td>{{ invoice.contractId }}</td>
+                <td> -- </td>
+                <td> -- </td>
+                <td>
+                    {{ formatDate(invoice.startInterval) }} - {{ formatDate(invoice.endInterval) }}
+                </td>
+                <!--td>{{ invoice.description }}</td-->
+                <td>{{ invoice.amount }} FCFA</td>
+                <td>En attente</td>
+                <td>
+                    <div class="flex">
+                        <!--button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-success mr-2"
+                            (click)="viewInvoiceDetails(invoice)"></button-->
+
+                        <button pButton pRipple icon="pi pi-print" class="p-button-rounded p-button-primary mr-2"
+                            (click)="printInvoice(invoice.id)"></button>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <p-dialog [(visible)]="invoiceDialog" styleClass="p-fluid" header="Détails de la Facture"
+        [style]="{ width: '70%' }">
+        <div class="grid" *ngIf="selectedInvoice">
+            <div class="col-6 p-md-4">
+                <div class="p-field">
+                    <label for="contractId">ID du Contrat</label>
+                    <p>{{ selectedInvoice.contractId }}</p>
+                </div>
+            </div>
+            <div class="col-6 p-md-4">
+                <div class="p-field">
+                    <label for="amount">Montant</label>
+                    <p>{{ selectedInvoice.amount }} FCFA</p>
+                </div>
+            </div>
+            <div class="col-6 p-md-4">
+                <div class="p-field">
+                    <label for="dueDate">Date d'Échéance</label>
+                    <p>{{ formatDate(selectedInvoice.dueDate) }}</p>
+                </div>
+            </div>
+            <div class="col-12 p-md-8">
+                <div class="p-field">
+                    <label for="description">Description</label>
+                    <p>{{ selectedInvoice.description }}</p>
+                </div>
+            </div>
+            <div class="col-6 p-md-4">
+                <div class="p-field">
+                    <label for="invoiceReference">Référence</label>
+                    <p>{{ selectedInvoice.invoiceReference }}</p>
+                </div>
+            </div>
+        </div>
+        <p-footer>
+            <button pButton label="Fermer" icon="pi pi-times" (click)="hideDialog()"></button>
+        </p-footer>
+    </p-dialog>
+</div>

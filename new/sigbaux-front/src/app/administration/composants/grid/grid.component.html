@@ -1,0 +1,12 @@
+<div class="grid">
+    <div *ngFor="let card of cards" class="col-12 md:col-12 xl:col-3">
+        <div class="overview-card surface-card py-3 px-3 shadow-1 border-round-md h-full dashboard-card">
+            <div class="flex align-items-center justify-content-between">
+                <div>
+                    <span class="font-semibold text-900 ">{{ card.title }}</span>
+                    <h3 class="count-text">{{ card.count }}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
