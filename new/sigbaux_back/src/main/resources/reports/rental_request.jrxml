@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RentalRequestReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a12f7a7d-d4bf-4e65-b9c2-96a4861d8b1b">
+	<property name="net.sf.jasperreports.default.font.name" value="Helvetica"/>
+	<property name="net.sf.jasperreports.default.font.size" value="10"/>
+	<parameter name="structureName" class="java.lang.String"/>
+	<parameter name="motivationRequest" class="java.lang.String"/>
+	<parameter name="structureCurrentPosition" class="java.lang.String"/>
+	<parameter name="agentsNumber" class="java.lang.String"/>
+	<parameter name="managersNumber" class="java.lang.String"/>
+	<parameter name="desiredLocation" class="java.lang.String"/>
+	<parameter name="leasePortfolioMinistry" class="java.lang.String"/>
+	<parameter name="buildingsOccupancyStatus" class="java.lang.String"/>
+	<field name="usageLibCourt" class="java.lang.String"/>
+	<field name="usageLibLong" class="java.lang.String"/>
+	<field name="characteristicValue" class="java.lang.String"/>
+	<title>
+		<band height="50">
+			<textField>
+				<reportElement x="0" y="0" width="535" height="30" uuid="c5bc7947-6fcd-4d83-87c1-bf6d8ac5202b"/>
+				<textElement textAlignment="Center">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fiche d'expression de besoin de location de bâtiments"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30"/>
+	</pageHeader>
+	<detail>
+		<band height="600">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField>
+				<reportElement x="0" y="8" width="535" height="20" uuid="8297728c-2332-4a9c-b588-2cc5de0a0c30"/>
+				<textFieldExpression><![CDATA["Identification de la ou des structures à loger: " + $P{structureName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="38" width="535" height="20" uuid="61e1dfdb-c400-4847-ad9f-c021ae919f9c"/>
+				<textFieldExpression><![CDATA["Motif de la demande: " + $P{motivationRequest}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="68" width="535" height="20" uuid="a2469c07-c0fb-480e-bf11-0e53ff9fa350"/>
+				<textFieldExpression><![CDATA["Position actuelle de la ou des structures à loger: " + $P{structureCurrentPosition}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="98" width="535" height="20" uuid="4c2d49f5-4ed4-478c-b5cd-ecbf9eb30158"/>
+				<textFieldExpression><![CDATA["Effectif total des agents à loger: " + $P{agentsNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="128" width="535" height="20" uuid="c98a53d3-832c-41f7-9c2f-b2c8d7c121b7"/>
+				<textFieldExpression><![CDATA["Nombre de responsables à loger: " + $P{managersNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="154" width="535" height="20" uuid="abe7d57d-9c7a-4f5e-b12c-76d22ea8a7ec"/>
+				<textFieldExpression><![CDATA["Portefeuille des baux du ministère dont relève la structure à loger: " + $P{leasePortfolioMinistry}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="184" width="535" height="20" uuid="5e1c8729-5446-44e0-9914-1cdb68f84dd6"/>
+				<textFieldExpression><![CDATA["Situation d’occupation des bâtiments administratifs mis à disposition du ministère: " + $P{buildingsOccupancyStatus}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="216" width="535" height="20" uuid="d0d45682-8d85-48c3-bb83-c328b93f9ec5"/>
+				<textFieldExpression><![CDATA["Usage du bâtiment à louer:"]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="246" width="535" height="144" uuid="6cd852f0-1220-465a-9033-fa3011b8f59d"/>
+				<textField>
+					<reportElement x="0" y="0" width="200" height="20" uuid="b85aeec3-8121-4ff4-a49c-469db0ca539c"/>
+					<textFieldExpression><![CDATA[$F{usageLibCourt}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="200" y="0" width="335" height="20" uuid="f595a5b2-36f4-4d4a-932e-4b539b924cf6"/>
+					<textFieldExpression><![CDATA[$F{usageLibLong}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement x="0" y="410" width="535" height="20" uuid="d0d45682-8d85-48c3-bb83-c328b93f9ec9"/>
+				<textFieldExpression><![CDATA["Caractéristiques souhaitées:"]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="463" width="535" height="92" uuid="9bb9539e-fb2c-4241-a832-3f44417b9fd9"/>
+				<textField>
+					<reportElement x="0" y="-24" width="535" height="20" uuid="128673b8-cd13-4c9a-b330-d909c637a2cd"/>
+					<textFieldExpression><![CDATA[$F{characteristicValue}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30">
+			<textField>
+				<reportElement x="0" y="0" width="535" height="20" uuid="67d3f7a9-3956-493f-b4f5-392b6c4fe7cb"/>
+				<textElement textAlignment="Right">
+					<font size="10" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
